@@ -1,0 +1,14 @@
+undefined
+['', 'undefined', 'Undefined', 'unknown', 'Unknown']
+
+survived = True
+['yes', 'Yes', 'survived', 'Survived', 'true', 'True', 't', 'T', 'Alive']
+
+survived = False
+['no', 'No', 'dead', 'Dead', 'false', 'False', 'f', 'F', 'Survived=dead']
+
+male
+['male', 'Male', 'm', 'M']
+
+female
+['female', 'Female', 'f', 'F']
