@@ -46,7 +46,7 @@ def preprocess(records):
                 if temp_list[idx] in ['', 'undefined', 'Undefined', 'unknown', 'Unknown']:
                     temp_tuple = (); break
                 temp_list[idx] = float(temp_list[idx])
-                if temp_list[idx] > 0:
+                if temp_list[idx] > 0 and temp_list[idx] <= 100:
                     temp_tuple.append(temp_list[idx])
                 else: temp_tuple = (); break
 
