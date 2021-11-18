@@ -45,4 +45,3 @@ def run(trials):
     return val
 
 print(run(1))
-print(calculate_factorial('baum'))
