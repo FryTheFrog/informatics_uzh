@@ -11,7 +11,6 @@ def fuzzer(min_length, max_length, char_start, char_end):
     for i in range(length):
         i = random.randrange(char_start, char_end + 1)
         string += chr(i)
-    print(string)
     return string
 
 def calculate_factorial(inp):
