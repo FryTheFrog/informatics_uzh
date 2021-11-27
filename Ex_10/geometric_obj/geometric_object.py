@@ -3,7 +3,6 @@ from abc import ABC, abstractmethod
 
 class GeometricObject(ABC):
     def __init__(self, color:str, filled:bool):
-        super().__init__()
         self.__color = color
         self.__filled = filled
     

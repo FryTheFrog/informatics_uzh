@@ -3,7 +3,6 @@ from abc import ABC, abstractmethod
 class Shop(ABC):
 
     def __init__(self, capital):
-        super().__init__()
         self._capital = capital
         self.__loan = 0
         self.__initial_loan_amount = 0
