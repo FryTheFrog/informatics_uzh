@@ -38,5 +38,3 @@ class Fridge:
                 removed.append(i)
         self.__inv = [i for i in self.__inv if i not in removed]
         return removed
-
-f = Fridge()
