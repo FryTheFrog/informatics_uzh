@@ -23,8 +23,8 @@ class HybridCar(CombustionCar, ElectricCar):
         c_range = CombustionCar.get_remaining_range(self)
         e_range = ElectricCar.get_remaining_range(self)
         if dist > self.get_remaining_range():
-            CombustionCar.drive(c_range)
-            ElectricCar.drive(e_range)
+            CombustionCar.drive(self, c_range)
+            ElectricCar.drive(self, e_range)
             raise Warning('both modes depleted')
         if self.__op_mode == 'c':
             if c_range <= dist:
