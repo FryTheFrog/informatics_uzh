@@ -49,7 +49,7 @@ def dict_sum(d):
     return sum(vals)
 
 # merge 2 dicts
-def merge_dicts(d1, d2):
+def merge_dicts(d1, d2) -> dict:
     merged = d1 | d2
     return merged
 
@@ -59,13 +59,17 @@ from collections import defaultdict
 def combine_values(*dicts) -> dict:
   res = defaultdict(list)
   for d in dicts:
-    for key in d:
-      res[key].append(d[key])
+    for dictkey in d:
+      res[dictkey].append(d[dictkey])
   return dict(res)
 
 # invert dict
 def invert_dictionary(d) -> dict:
   return {value: key for key, value in d.items()}
+
+# sort a list of dicts according to specified val (e.g. a parsed CSV)
+def sort_dicts(lst, dictkey) -> list:
+    return lst.sorted(lst, key=lambda item: item.get(dictkey))
 
 # CSV
 # parse a csv (dict for each line, header vals as keys)
