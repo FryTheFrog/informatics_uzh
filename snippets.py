@@ -26,7 +26,7 @@ def all_unique(lst) -> bool:
 def chunk_list(lst, size) -> list:
     return [lst[i:i+size] for i in range(0, len(lst), size)]
 
-# deep flatten a nested list
+# deep flatten a nested list (N-Dimensional)
 def deep_flatten(lst) -> list:
     flat_list = []
     [flat_list.extend(deep_flatten(i)) for i in lst] if isinstance(lst, list) else flat_list.append(lst)
