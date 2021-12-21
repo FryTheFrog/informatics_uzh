@@ -74,4 +74,3 @@ import csv
 def parse_csv(path:str) -> list:
     with open(path) as my_data:
         return list(csv.DictReader(my_data))
-
