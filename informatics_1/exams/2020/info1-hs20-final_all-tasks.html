@@ -1,0 +1,583 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<style>
+  html         {font-family: helvetica;}
+  body         {color:black; background-color: white;}
+  .answer      {display: flex; align-items: center; padding: 3px;}
+  .correct     {width: 80px; padding-right: 5px;}
+</style>
+</head>
+
+<h1>Warmup (3 out of 7)</h1>
+<hr style="height: 5px; background-color: #000;"/>
+<p>Points: 7</p>
+
+<h5>DEUTSCH</h5>
+<p>Implementieren sie eine Funktion namens <span style="font-family: terminal, monaco, monospace;">tally</span>, die drei parameter annimmt: Eine nicht-leere Liste von positiven Zahlen <span style="font-family: terminal, monaco, monospace;">costs</span>, eine nicht-leere Liste von positiven Zahlen <span style="font-family: terminal, monaco, monospace;">discounts</span>, und einen float zwischen (einschliesslich) 0 und 1 <span style="font-family: terminal, monaco, monospace;">rebate_factor</span>.</p>
+
+<p>Die Funktion soll die Summe der Werte in <span style="font-family: terminal, monaco, monospace;">discounts</span> von der Summe der Werte in <span style="font-family: terminal, monaco, monospace;">costs</span> abziehen und dann mit <span style="font-family: terminal, monaco, monospace;">rebate_factor</span> multiplizieren. Sollte das Ergebnis negativ sein, soll 0 zurückgegeben werden. Der Rückgabewert soll immer auf 2 Nachkommastellen gerundet sein.</p>
+
+<p>Sie können davon ausgehen, dass die Funktion nur mit gültigen Parametern aufgerufen wird.</p>
+
+<h5>ENGLISH</h5>
+
+<p>Implement a function <span style="font-family: terminal, monaco, monospace;">tally</span>, which takes three parameters: a non-empty list of positive numbers <span style="font-family: terminal, monaco, monospace;">costs</span>, a non-empty list of positive numbers <span style="font-family: terminal, monaco, monospace;">discounts</span>, and a float between (including) 0 and 1 <span style="font-family: terminal, monaco, monospace;">rebate_factor</span>.</p>
+
+<p>The function should subtract the sum of values in <span style="font-family: terminal, monaco, monospace;">discounts</span> from the sum of values in <span style="font-family: terminal, monaco, monospace;">costs</span> and then multiply the result with <span style="font-family: terminal, monaco, monospace;">rebate_factor</span>. Should the result be negative, return 0. The result value should be rounded to 2 decimal places.</p>
+
+<p>You can assume that the function is only called with valid parameters.</p>
+
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><span style="color: #408080; font-style: italic">#-- THIS LINE SHOULD BE THE FIRST LINE OF YOUR SUBMISSION! --#</span><br/><br/><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">tally</span>(costs, discounts, rebate_factor):<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #008000; font-weight: bold">pass</span><br/><br/><span style="color: #408080; font-style: italic">#-- THIS LINE SHOULD BE THE LAST LINE OF YOUR SUBMISSION! ---#</span><br/><br/><span style="color: #408080; font-style: italic">### DO NOT SUBMIT THE FOLLOWING LINES!!! THESE ARE FOR LOCAL TESTING ONLY!</span><br/><span style="color: #408080; font-style: italic"># ((10+24) - (3+4+3)) * 0.3</span><br/><span style="color: #008000; font-weight: bold">assert</span>(tally([<span style="color: #666666">10</span>,<span style="color: #666666">24</span>], [<span style="color: #666666">3</span>,<span style="color: #666666">4</span>,<span style="color: #666666">3</span>], <span style="color: #666666">0.30</span>) <span style="color: #666666">==</span> <span style="color: #666666">7.20</span>)<br/><span style="color: #408080; font-style: italic"># if the result would be negative, 0 is returned instead</span><br/><span style="color: #008000; font-weight: bold">assert</span>(tally([<span style="color: #666666">10</span>], [<span style="color: #666666">20</span>], <span style="color: #666666">0.1</span>) <span style="color: #666666">==</span> <span style="color: #666666">0</span>)<br/></pre></div>
+
+
+<br/>
+
+<p>Fügen Sie ihre Lösung in folgendes Textfeld ein / Paste your solution into the following text field</p>
+
+<hr style="height: 5px; background-color: #000;"/>
+<p>Points: 7</p>
+
+<h5>DEUTSCH</h5>
+<p>Implementieren sie eine Funktion namens <span style="font-family: terminal, monaco, monospace;">find_both_ways</span>, die zwei nicht-leere Strings als parameter annimmt: <span style="font-family: terminal, monaco, monospace;">text</span> und <span style="font-family: terminal, monaco, monospace;">word</span>. Die Funktion soll feststellen, ob der String <span style="font-family: terminal, monaco, monospace;">word</span> im String <span style="font-family: terminal, monaco, monospace;">text</span> vorkommt, sei es normal oder rückwärts gelesen, ohne dass Gross-Klein-Schreibung eine Rolle spielen soll (siehe Assertions in der Vorlage).</p>
+
+<p>Wenn <span style="font-family: terminal, monaco, monospace;">word</span> in <span style="font-family: terminal, monaco, monospace;">text</span> von links nach rechts (also normal gelesen) vorkommt, soll die Funktion das Tupel <span style="font-family: terminal, monaco, monospace;">(True, 1)</span> zurückgeben. Wenn <span style="font-family: terminal, monaco, monospace;">word</span> in <span style="font-family: terminal, monaco, monospace;">text</span> von rechts nach links vorkommt (also rückwärts gelesen), dann soll die Funktion das Tupel <span style="font-family: terminal, monaco, monospace;">(True, -1)</span> zurückgeben. Kommt <span style="font-family: terminal, monaco, monospace;">word</span> nicht vor, so soll <span style="font-family: terminal, monaco, monospace;">(False, 0)</span> zurückgegeben werden.
+
+<p>Sie können davon ausgehen, dass die Funktion nur mit gültigen Parametern aufgerufen wird.</p>
+
+<h5>ENGLISH</h5>
+<p>Implement a function <span style="font-family: terminal, monaco, monospace;">find_both_ways</span>, which takes two non-empty strings as parameters: <span style="font-family: terminal, monaco, monospace;">text</span> and <span style="font-family: terminal, monaco, monospace;">word</span>. The function should determine if the string <span style="font-family: terminal, monaco, monospace;">word</span> appears in the string <span style="font-family: terminal, monaco, monospace;">text</span>, read either normally or backwards, while ignoring the casing (see assertions in the template).</p>
+
+<p>If <span style="font-family: terminal, monaco, monospace;">word</span> appears in <span style="font-family: terminal, monaco, monospace;">text</span> from left to right (i.e. read normally), the function should return the tuple <span style="font-family: terminal, monaco, monospace;">(True, 1)</span>. If <span style="font-family: terminal, monaco, monospace;">word</span> appears in <span style="font-family: terminal, monaco, monospace;">text</span> from right to left (i.e. read in reverse), the function should return the tuple <span style="font-family: terminal, monaco, monospace;">(True, -1)</span>. If <span style="font-family: terminal, monaco, monospace;">word</span> does not appear, <span style="font-family: terminal, monaco, monospace;">(False, 0)</span> should be returned.
+
+<p>You can assume that the function is only called with valid parameters.</p>
+
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><span style="color: #408080; font-style: italic">#-- THIS LINE SHOULD BE THE FIRST LINE OF YOUR SUBMISSION! --#</span><br/><br/><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">find_both_ways</span>(text, word):<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #008000; font-weight: bold">pass</span><br/><br/><span style="color: #408080; font-style: italic">#-- THIS LINE SHOULD BE THE LAST LINE OF YOUR SUBMISSION! ---#</span><br/><br/><span style="color: #408080; font-style: italic">### DO NOT SUBMIT THE FOLLOWING LINES!!! THESE ARE FOR LOCAL TESTING ONLY!</span><br/><span style="color: #008000; font-weight: bold">assert</span>(find_both_ways(<span style="color: #BA2121">&quot;Hello, World!&quot;</span>, <span style="color: #BA2121">&quot;lo, wo&quot;</span>) <span style="color: #666666">==</span> (<span style="color: #008000; font-weight: bold">True</span>, <span style="color: #666666">1</span>))<br/><span style="color: #008000; font-weight: bold">assert</span>(find_both_ways(<span style="color: #BA2121">&quot;Hello, God!&quot;</span>, <span style="color: #BA2121">&quot;Dog&quot;</span>) <span style="color: #666666">==</span> (<span style="color: #008000; font-weight: bold">True</span>, <span style="color: #666666">-1</span>))<br/><span style="color: #008000; font-weight: bold">assert</span>(find_both_ways(<span style="color: #BA2121">&quot;Hello, California!&quot;</span>, <span style="color: #BA2121">&quot;local&quot;</span>) <span style="color: #666666">==</span> (<span style="color: #008000; font-weight: bold">False</span>, <span style="color: #666666">0</span>))<br/></pre></div>
+
+
+<br/>
+
+<p>Fügen Sie ihre Lösung in folgendes Textfeld ein / Paste your solution into the following text field</p>
+
+<hr style="height: 5px; background-color: #000;"/>
+<p>Points: 7</p>
+
+<h5>DEUTSCH</h5>
+<p>Implementieren sie eine Funktion namens <span style="font-family: terminal, monaco, monospace;">dict_to_lists</span>, die ein dictionary als parameter <span style="font-family: terminal, monaco, monospace;">d</span> annimt. Die Funktion soll zwei Werte zurückgeben: eine Liste der Schlüssel in <span style="font-family: terminal, monaco, monospace;">d</span>, und eine Liste der entsprechenden Werte in <span style="font-family: terminal, monaco, monospace;">d</span>. Die Sortierung spielt keine Rolle, solang für jedes Element im ersten Rückgabewert der dazugehörige Wert in der zweiten Liste unter dem selben Index gefunden werden kann.</p>
+
+<p>Sie können davon ausgehen, dass die Funktion nur mit gültigen Parametern aufgerufen wird.</p>
+
+<h5>ENGLISH</h5>
+<p>Implement a function <span style="font-family: terminal, monaco, monospace;">dict_to_lists</span>, which takes a dictionary as parameters <span style="font-family: terminal, monaco, monospace;">d</span>. The function should return two values: a list of keys in <span style="font-family: terminal, monaco, monospace;">d</span> and a list of corresponding values in <span style="font-family: terminal, monaco, monospace;">d</span>. The sorting does not matter, as long as for each element in the first return value, the corresponding value can be found in the second list under the same index.</p>
+
+<p>You can assume that the function is only called with valid parameters.</p>
+
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><span style="color: #408080; font-style: italic">#-- THIS LINE SHOULD BE THE FIRST LINE OF YOUR SUBMISSION! --#</span><br/><br/><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">dict_to_lists</span>(d):<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #008000; font-weight: bold">pass</span><br/><br/><span style="color: #408080; font-style: italic">#-- THIS LINE SHOULD BE THE LAST LINE OF YOUR SUBMISSION! ---#</span><br/><br/><span style="color: #408080; font-style: italic">### DO NOT SUBMIT THE FOLLOWING LINES!!! THESE ARE FOR LOCAL TESTING ONLY!</span><br/>x <span style="color: #666666">=</span> {<span style="color: #666666">2</span>: <span style="color: #BA2121">&quot;b&quot;</span>, <span style="color: #666666">1</span>: <span style="color: #BA2121">&quot;a&quot;</span>}<br/>l1, l2 <span style="color: #666666">=</span> dict_to_lists(x)<br/><span style="color: #008000; font-weight: bold">assert</span>(<span style="color: #008000">sorted</span>(l1) <span style="color: #666666">==</span> [<span style="color: #666666">1</span>, <span style="color: #666666">2</span>])<br/><span style="color: #008000; font-weight: bold">assert</span>(<span style="color: #008000">sorted</span>(l2) <span style="color: #666666">==</span> [<span style="color: #BA2121">&quot;a&quot;</span>, <span style="color: #BA2121">&quot;b&quot;</span>])<br/><span style="color: #008000; font-weight: bold">assert</span>(l2[<span style="color: #666666">1</span>] <span style="color: #666666">==</span> x[l1[<span style="color: #666666">1</span>]])<br/></pre></div>
+
+
+<br/>
+
+<p>Fügen Sie ihre Lösung in folgendes Textfeld ein / Paste your solution into the following text field</p>
+
+<hr style="height: 5px; background-color: #000;"/>
+<p>Points: 7</p>
+
+<h5>DEUTSCH</h5>
+<p>Implementieren sie eine Funktion namens <span style="font-family: terminal, monaco, monospace;">is_divisble_by</span>, die einen Integer <span style="font-family: terminal, monaco, monospace;">n</span> und eine Liste von Integers <span style="font-family: terminal, monaco, monospace;">numbers</span> annimt. Die Funktion soll bestimmen, ob <span style="font-family: terminal, monaco, monospace;">n</span> durch alle Zahlen in <span style="font-family: terminal, monaco, monospace;">numbers</span> teilbar ist, und in dem Fall <span style="font-family: terminal, monaco, monospace;">True</span> zurückgeben. Wenn nicht, dann soll die Funktion <span style="font-family: terminal, monaco, monospace;">False</span> zurückgeben. Falls <span style="font-family: terminal, monaco, monospace;">numbers</span> leer ist oder <span style="font-family: terminal, monaco, monospace;">0</span> enthält, soll die Funktion einen <span style="font-family: terminal, monaco, monospace;">ValueError</span> verursachen.</p>
+
+<p>Sie können davon ausgehen, dass die Funktion nur mit Parametern aufgerufen wird, wie sie im ersten Satz beschrieben sind.</p>
+
+<h5>ENGLISH</h5>
+<p>Implement a function <span style="font-family: terminal, monaco, monospace;">is_divisible_by</span>, which takes two parameters: an integer <span style="font-family: terminal, monaco, monospace;">n</span> and a list of integers <span style="font-family: terminal, monaco, monospace;">numbers</span>. The function should determine if <span style="font-family: terminal, monaco, monospace;">n</span> is divisible by all numbers in <span style="font-family: terminal, monaco, monospace;">numbers</span>, in which case it should return <span style="font-family: terminal, monaco, monospace;">True</span>. If not, the function should return <span style="font-family: terminal, monaco, monospace;">False</span>. If <span style="font-family: terminal, monaco, monospace;">numbers</span> is empty or includes <span style="font-family: terminal, monaco, monospace;">0</span>, the function should raise a <span style="font-family: terminal, monaco, monospace;">ValueError</span>.</p>
+
+<p>You can assume that the function is only called with valid parameters.</p>
+
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><span style="color: #408080; font-style: italic">#-- THIS LINE SHOULD BE THE FIRST LINE OF YOUR SUBMISSION! --#</span><br/><br/><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">is_divisible_by</span>(n, numbers):<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #008000; font-weight: bold">pass</span><br/><br/><span style="color: #408080; font-style: italic">#-- THIS LINE SHOULD BE THE LAST LINE OF YOUR SUBMISSION! ---#</span><br/><br/><span style="color: #408080; font-style: italic">### DO NOT SUBMIT THE FOLLOWING LINES!!! THESE ARE FOR LOCAL TESTING ONLY!</span><br/><span style="color: #008000; font-weight: bold">assert</span>(is_divisible_by(<span style="color: #666666">30</span>, [<span style="color: #666666">3</span>, <span style="color: #666666">6</span>, <span style="color: #666666">15</span>]))<br/><span style="color: #008000; font-weight: bold">assert</span>(<span style="color: #AA22FF; font-weight: bold">not</span> is_divisible_by(<span style="color: #666666">30</span>, [<span style="color: #666666">3</span>, <span style="color: #666666">6</span>, <span style="color: #666666">29</span>]))<br/><span style="color: #008000; font-weight: bold">try</span>:<br/>&nbsp;&nbsp;&nbsp;&nbsp;is_divisible_by(<span style="color: #666666">30</span>, [<span style="color: #666666">0</span>, <span style="color: #666666">6</span>, <span style="color: #666666">29</span>])<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #008000; font-weight: bold">assert</span>(<span style="color: #008000; font-weight: bold">False</span>) <span style="color: #408080; font-style: italic"># expected an exception!</span><br/><span style="color: #008000; font-weight: bold">except</span> <span style="color: #D2413A; font-weight: bold">ValueError</span>:<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #008000; font-weight: bold">pass</span> <span style="color: #408080; font-style: italic"># the correct exception was thrown</span><br/></pre></div>
+
+
+<br/>
+
+<p>Fügen Sie ihre Lösung in folgendes Textfeld ein / Paste your solution into the following text field</p>
+
+<hr style="height: 5px; background-color: #000;"/>
+<p>Points: 7</p>
+
+<h5>DEUTSCH</h5>
+<p>Implementieren sie eine Funktion namens <span style="font-family: terminal, monaco, monospace;">all_truthy</span>, die eine Liste von beliebigen Werten <span style="font-family: terminal, monaco, monospace;">values</span> annimmt. Die Funktion soll bestimmen, ob alle Werte in <span style="font-family: terminal, monaco, monospace;">values</span> als <span style="font-family: terminal, monaco, monospace;">True</span> evaluieren. Wenn ja, soll die Funktion <span style="font-family: terminal, monaco, monospace;">True</span> zurückgeben, ansonsten False. Für eine leere Liste gilt, dass alle Werte <span style="font-family: terminal, monaco, monospace;">True</span> sind.</p>
+
+<p>Sie können davon ausgehen, dass die Funktion nur mit gültigen Parametern aufgerufen wird.</p>
+
+<h5>ENGLISH</h5>
+<p>Implement a function <span style="font-family: terminal, monaco, monospace;">all_truthy</span>, which takes a list of arbitrary values as a parameter <span style="font-family: terminal, monaco, monospace;">values</span>. The function should determine if all values in <span style="font-family: terminal, monaco, monospace;">values</span> evaluate as <span style="font-family: terminal, monaco, monospace;">True</span>. If yes, it should return <span style="font-family: terminal, monaco, monospace;">True</span>, <span style="font-family: terminal, monaco, monospace;">False</span> otherwise. For an empty list, all values are <span style="font-family: terminal, monaco, monospace;">True</span>.</p>
+
+<p>You can assume that the function is only called with valid parameters.</p>
+
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><span style="color: #408080; font-style: italic">#-- THIS LINE SHOULD BE THE FIRST LINE OF YOUR SUBMISSION! --#</span><br/><br/><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">all_truthy</span>(values):<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #008000; font-weight: bold">pass</span><br/><br/><span style="color: #408080; font-style: italic">#-- THIS LINE SHOULD BE THE LAST LINE OF YOUR SUBMISSION! ---#</span><br/><br/><span style="color: #408080; font-style: italic">### DO NOT SUBMIT THE FOLLOWING LINES!!! THESE ARE FOR LOCAL TESTING ONLY!</span><br/><span style="color: #008000; font-weight: bold">assert</span>(all_truthy([<span style="color: #008000; font-weight: bold">True</span>, <span style="color: #BA2121">&quot;yes&quot;</span>, <span style="color: #BA2121">&quot;no&quot;</span>, <span style="color: #666666">1</span>, [{}]]))<br/><span style="color: #008000; font-weight: bold">assert</span>(all_truthy([]))<br/><span style="color: #008000; font-weight: bold">assert</span>(<span style="color: #AA22FF; font-weight: bold">not</span> all_truthy([<span style="color: #008000; font-weight: bold">True</span>, <span style="color: #BA2121">&quot;yes&quot;</span>, <span style="color: #666666">0.0</span>]))<br/></pre></div>
+
+
+<br/>
+
+<p>Fügen Sie ihre Lösung in folgendes Textfeld ein / Paste your solution into the following text field</p>
+
+<hr style="height: 5px; background-color: #000;"/>
+<p>Points: 7</p>
+
+<h5>DEUTSCH</h5>
+<p>Vervollständigen Sie die Implementation einer Funktion namens <span style="font-family: terminal, monaco, monospace;">lottery</span>, die einen Parameter <span style="font-family: terminal, monaco, monospace;">values</span>, eine nicht-leere Liste von positiven Integer zwischen 1 und 50, annimmt. Die Funktion wählt <em>n</em> zufällige Zahlen zwischen 1 und 50 (wobei <em>n</em> der Länge von <span style="font-family: terminal, monaco, monospace;">values</span> entspricht) und speichert diese Auswahl in einer lokalen Variable <span style="font-family: terminal, monaco, monospace;">draw</span>. Die Funktion soll nun bestimmen, wieviele der Werte in <span style="font-family: terminal, monaco, monospace;">draw</span> auch in <span style="font-family: terminal, monaco, monospace;">values</span> vorkommen. Die Funktion soll zwei Werte zurückgeben: erstens <span style="font-family: terminal, monaco, monospace;">draw</span> und zweitens die Anzahl übereinstimmender Werte.</p>
+
+<p>Sie können davon ausgehen, dass die Funktion nur mit gültigen Parametern aufgerufen wird.</p>
+
+<h5>ENGLISH</h5>
+<p>Complete the implementation of a function <span style="font-family: terminal, monaco, monospace;">lottery</span>, which takes a parameter <span style="font-family: terminal, monaco, monospace;">values</span>, a non-empty list of positive integers between 1 and 50. The function chooses <em>n</em> arbitrary values between 1 and 50 (<em>n</em> being the length of <span style="font-family: terminal, monaco, monospace;">values</span>) and saves them in a local variable <span style="font-family: terminal, monaco, monospace;">draw</span>. The function should now determine, how many values of <span style="font-family: terminal, monaco, monospace;">draw</span> are also in <span style="font-family: terminal, monaco, monospace;">values</span>. The function should return two values: first, <span style="font-family: terminal, monaco, monospace;">draw</span> and second, the number of matching values.</p>
+
+<p>You can assume that the function is only called with valid parameters.</p>
+
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><span style="color: #408080; font-style: italic">#-- THIS LINE SHOULD BE THE FIRST LINE OF YOUR SUBMISSION! --#</span><br/><br/><span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">random</span><br/><br/><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">lottery</span>(values):<br/>&nbsp;&nbsp;&nbsp;&nbsp;draw <span style="color: #666666">=</span> random<span style="color: #666666">.</span>sample(<span style="color: #008000">range</span>(<span style="color: #666666">1</span>,<span style="color: #666666">51</span>), k<span style="color: #666666">=</span><span style="color: #008000">len</span>(values))<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #408080; font-style: italic"># complete the implementation of this function</span><br/><br/><span style="color: #408080; font-style: italic">#-- THIS LINE SHOULD BE THE LAST LINE OF YOUR SUBMISSION! ---#</span><br/><br/><span style="color: #408080; font-style: italic">### DO NOT SUBMIT THE FOLLOWING LINES!!! THESE ARE FOR LOCAL TESTING ONLY!</span><br/>guess <span style="color: #666666">=</span> [<span style="color: #666666">1</span>,<span style="color: #666666">2</span>,<span style="color: #666666">3</span>,<span style="color: #666666">4</span>,<span style="color: #666666">5</span>]<br/>res <span style="color: #666666">=</span> lottery(guess)<br/><span style="color: #008000; font-weight: bold">assert</span>(<span style="color: #008000">len</span>(res[<span style="color: #666666">0</span>]) <span style="color: #666666">==</span> <span style="color: #008000">len</span>(guess))<br/><span style="color: #008000; font-weight: bold">assert</span>(res[<span style="color: #666666">1</span>] <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(<span style="color: #666666">0</span>,<span style="color: #008000">len</span>(guess)<span style="color: #666666">+1</span>))<br/></pre></div>
+
+
+<br/>
+
+<p>Fügen Sie ihre Lösung in folgendes Textfeld ein / Paste your solution into the following text field</p>
+
+<hr style="height: 5px; background-color: #000;"/>
+<p>Points: 7</p>
+
+<h5>DEUTSCH</h5>
+<p>Implementieren sie eine Funktion namens <span style="font-family: terminal, monaco, monospace;">recursive_join</span>, die zwei Parameter annimt: einen String <span style="font-family: terminal, monaco, monospace;">delim</span> und eine nicht-leere Liste von Strings <span style="font-family: terminal, monaco, monospace;">values</span>. Die Funktion soll die Werte in <span style="font-family: terminal, monaco, monospace;">values</span> mit <span style="font-family: terminal, monaco, monospace;">delim</span> als Bindeglied aneinanderreihen und zurückgeben</p>
+
+<p>Sie können davon ausgehen, dass die Funktion nur mit gültigen Parametern aufgerufen wird.</p>
+
+<p>Sie dürfen und können die funktion <span style="font-family: terminal, monaco, monospace;">str.join</span> hier nicht gebrauchen. Ihre Lösung muss rekursiv implementiert sein.</p>
+
+<h5>ENGLISH</h5>
+<p>Implement a function <span style="font-family: terminal, monaco, monospace;">recursive_join</span>, which takes two parameters; a string <span style="font-family: terminal, monaco, monospace;">delim</span> and a non-empty list of strings <span style="font-family: terminal, monaco, monospace;">values</span>. The function should join the values in <span style="font-family: terminal, monaco, monospace;">values</span> using <span style="font-family: terminal, monaco, monospace;">delim</span> as the delimiter and return the result.</p>
+
+<p>You can assume that the function is only called with valid parameters.</p>
+
+<p>You shouldn't and cannot use <span style="font-family: terminal, monaco, monospace;">str.join</span> in this task. Your solution must be implemented using recursion.</p>
+
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><span style="color: #408080; font-style: italic">#-- THIS LINE SHOULD BE THE FIRST LINE OF YOUR SUBMISSION! --#</span><br/><br/><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">recursive_join</span>(delim, values):<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #008000; font-weight: bold">pass</span><br/><br/><span style="color: #408080; font-style: italic">#-- THIS LINE SHOULD BE THE LAST LINE OF YOUR SUBMISSION! ---#</span><br/><br/><span style="color: #408080; font-style: italic">### DO NOT SUBMIT THE FOLLOWING LINES!!! THESE ARE FOR LOCAL TESTING ONLY!</span><br/><span style="color: #008000; font-weight: bold">assert</span>(recursive_join(<span style="color: #BA2121">&quot; &quot;</span>, [<span style="color: #BA2121">&quot;Hello&quot;</span>, <span style="color: #BA2121">&quot;world&quot;</span>]) <span style="color: #666666">==</span> <span style="color: #BA2121">&quot;Hello world&quot;</span>)<br/><span style="color: #008000; font-weight: bold">assert</span>(recursive_join(<span style="color: #BA2121">&quot; &lt;o&gt; &quot;</span>, [<span style="color: #BA2121">&quot;a&quot;</span>, <span style="color: #BA2121">&quot;b&quot;</span>, <span style="color: #BA2121">&quot;c&quot;</span>]) <span style="color: #666666">==</span> <span style="color: #BA2121">&quot;a &lt;o&gt; b &lt;o&gt; c&quot;</span>)<br/><span style="color: #008000; font-weight: bold">assert</span>(recursive_join(<span style="color: #BA2121">&quot;&quot;</span>, [<span style="color: #BA2121">&quot;a&quot;</span>, <span style="color: #BA2121">&quot;b&quot;</span>, <span style="color: #BA2121">&quot;c&quot;</span>]) <span style="color: #666666">==</span> <span style="color: #BA2121">&quot;abc&quot;</span>)<br/><span style="color: #008000; font-weight: bold">assert</span>(<span style="color: #BA2121">&quot;Your solution must be recursive!&quot;</span>)<br/></pre></div>
+
+
+<br/>
+
+<p>Fügen Sie ihre Lösung in folgendes Textfeld ein / Paste your solution into the following text field</p>
+
+<hr style="height: 5px; background-color: #000;"/>
+<p>Points: 7</p>
+
+<h5>DEUTSCH</h5>
+<p>Haben zwei Zeichensequenzen dieselbe Anzahl der jeweils gleichen Buchstaben, sind diese Worte Anagramme. Beispiele: "Fehler" und "Helfer", "Pandemiekrise" und "Rapides Keimen", "A BB CCC" und "cccbba".</p>
+
+<p>Implementieren sie eine Funktion namens <span style="font-family: terminal, monaco, monospace;">are_anagrams</span>, die zwei Strings als Parameter <span style="font-family: terminal, monaco, monospace;">a</span> und <span style="font-family: terminal, monaco, monospace;">b</span> annimmt. Die Funktion soll bestimmen, ob <span style="font-family: terminal, monaco, monospace;">a</span> und <span style="font-family: terminal, monaco, monospace;">b</span> Anagramme sind und wenn ja, <span style="font-family: terminal, monaco, monospace;">True</span> zurückgeben, ansonsten <span style="font-family: terminal, monaco, monospace;">False</span>. Dabei sollen nicht-alphanumerische Zeichen so wie Gross- und Kleinschreibung ignoriert werden.</p>
+
+<p>Sie können davon ausgehen, dass die Funktion nur mit gültigen Parametern aufgerufen wird.</p>
+
+<h5>ENGLISH</h5>
+<p>If two character sequences contain the same number of the same corresponding letters, these words are anagrams. Examples: "evil" and "vile", "Eleven plus two" and "Twelve plus one", "A BB CCC" and "cccbba".</p>
+
+<p>Implement a function <span style="font-family: terminal, monaco, monospace;">are_anagrams</span>, which takes two strings as parameters <span style="font-family: terminal, monaco, monospace;">a</span> and <span style="font-family: terminal, monaco, monospace;">b</span>. The function should determine if <span style="font-family: terminal, monaco, monospace;">a</span> and <span style="font-family: terminal, monaco, monospace;">b</span> are anagrams and return <span style="font-family: terminal, monaco, monospace;">True</span> if yes, otherwise <span style="font-family: terminal, monaco, monospace;">False</span>. Non-alphanumerical symbols as well as casing should both be ignored.</p>
+
+<p>You can assume that the function is only called with valid parameters.</p>
+
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><span style="color: #408080; font-style: italic">#-- THIS LINE SHOULD BE THE FIRST LINE OF YOUR SUBMISSION! --#</span><br/><br/><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">are_anagrams</span>(a, b):<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #008000; font-weight: bold">pass</span><br/><br/><span style="color: #408080; font-style: italic">#-- THIS LINE SHOULD BE THE LAST LINE OF YOUR SUBMISSION! ---#</span><br/><br/><span style="color: #408080; font-style: italic">### DO NOT SUBMIT THE FOLLOWING LINES!!! THESE ARE FOR LOCAL TESTING ONLY!</span><br/><span style="color: #008000; font-weight: bold">assert</span>(are_anagrams(<span style="color: #BA2121">&#39;Dog&#39;</span>, <span style="color: #BA2121">&#39;God&#39;</span>))<br/><span style="color: #008000; font-weight: bold">assert</span>(are_anagrams(<span style="color: #BA2121">&quot;The Meaning of Life.&quot;</span>, <span style="color: #BA2121">&quot;The fine game of nil!&quot;</span>))<br/><span style="color: #008000; font-weight: bold">assert</span>(<span style="color: #AA22FF; font-weight: bold">not</span> are_anagrams(<span style="color: #BA2121">&quot;The Meaning of Life&quot;</span>, <span style="color: #BA2121">&quot;Work&quot;</span>))<br/></pre></div>
+
+
+<br/>
+
+<p>Fügen Sie ihre Lösung in folgendes Textfeld ein / Paste your solution into the following text field</p>
+<h1>Functions (1 out of 3)</h1>
+<hr style="height: 5px; background-color: #000;"/>
+<p>Points: 15</p>
+
+<h5>DEUTSCH</h5>
+<p>Implementieren sie eine Funktion namens <span style="font-family: terminal, monaco, monospace;">stats</span>, die einen Parameter <span style="font-family: terminal, monaco, monospace;">students</span>, ein Dictionary, annimmt. Die Variable <span style="font-family: terminal, monaco, monospace;">raw</span> in der Vorlage unten ist ein gültiges Beispiel.</p>
+
+<p>Jeder Schlüssel in <span style="font-family: terminal, monaco, monospace;">students</span> ist eine Matrikelnummer als String. Jeder Wert ist eine Liste von Tupeln, wo das erste Element ein Schulfach als String, und das zweite Element eine Note zwischen 1 und 6 ist.
+
+<p>Die Funktion soll zwei Werte zurückgeben, beides Dictionaries. Das erste Dictionary soll ein Mapping von Matrikelnummer zur Durchschnittsnote des entsprechenden Schülers sein. Das zweite Dictionary soll ein Mapping von Schulfach zur Durchschnittsnote aller Schüler in dem jeweiligen Fach sein. Die berechneten Durchschnittsnoten sollen auf 2 Nachkommastellen gerundet werden.</p>
+
+<p>Sie können davon ausgehen, dass die Funktion nur mit gültigen Parametern aufgerufen wird.</p>
+
+<h5>ENGLISH</h5>
+<p>Implement a function <span style="font-family: terminal, monaco, monospace;">stats</span>, which takes a parameter <span style="font-family: terminal, monaco, monospace;">students</span>, a dictionary. The variable <span style="font-family: terminal, monaco, monospace;">raw</span> in the template below is a valid example.</p>
+
+<p>Every key in <span style="font-family: terminal, monaco, monospace;">students</span> is a matriculation number as a string. Every value is a list of tuples, where the first element is a subject as a string and the second element is a grade between 1 and 6.</p>
+
+<p>The function shall return two values, both dictionaries. The first dictionary should be a mapping from matriculation number to the average grade of the relevant student. The second dictionary should be a mapping from school subject to the average grade of all students in that subject. The average grades should be rounded to two decimal places.</p>
+
+<p>You can assume that the function is only called with valid parameters.</p>
+
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><span style="color: #408080; font-style: italic">#-- THIS LINE SHOULD BE THE FIRST LINE OF YOUR SUBMISSION! --#</span><br/><br/><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">stats</span>(students):<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #008000; font-weight: bold">pass</span><br/><br/><span style="color: #408080; font-style: italic">#-- THIS LINE SHOULD BE THE LAST LINE OF YOUR SUBMISSION! ---#</span><br/><br/><span style="color: #408080; font-style: italic">### DO NOT SUBMIT THE FOLLOWING LINES!!! THESE ARE FOR LOCAL TESTING ONLY!</span><br/>raw <span style="color: #666666">=</span> {<span style="color: #BA2121">&quot;12-345-678&quot;</span>: [(<span style="color: #BA2121">&quot;Math&quot;</span>, <span style="color: #666666">5.5</span>),  (<span style="color: #BA2121">&quot;Biology&quot;</span>, <span style="color: #666666">5.75</span>), (<span style="color: #BA2121">&quot;Latin&quot;</span>, <span style="color: #666666">4.25</span>)],<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #BA2121">&quot;09-876-543&quot;</span>: [(<span style="color: #BA2121">&quot;Latin&quot;</span>, <span style="color: #666666">3.5</span>), (<span style="color: #BA2121">&quot;Biology&quot;</span>, <span style="color: #666666">4.5</span>)],<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #BA2121">&quot;01-111-111&quot;</span>: [(<span style="color: #BA2121">&quot;Latin&quot;</span>, <span style="color: #666666">4.5</span>), (<span style="color: #BA2121">&quot;Biology&quot;</span>, <span style="color: #666666">4.75</span>), (<span style="color: #BA2121">&quot;French&quot;</span>, <span style="color: #666666">3.00</span>)],<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>students, subjects <span style="color: #666666">=</span> stats(raw)<br/><span style="color: #008000; font-weight: bold">assert</span>(<span style="color: #008000">len</span>(students) <span style="color: #666666">==</span> <span style="color: #666666">3</span>)<br/><span style="color: #008000; font-weight: bold">assert</span>(<span style="color: #008000">len</span>(subjects) <span style="color: #666666">==</span> <span style="color: #666666">4</span>)<br/><span style="color: #008000; font-weight: bold">assert</span>(students[<span style="color: #BA2121">&quot;12-345-678&quot;</span>] <span style="color: #666666">==</span> <span style="color: #666666">5.17</span>)<br/><span style="color: #008000; font-weight: bold">assert</span>(subjects[<span style="color: #BA2121">&quot;Latin&quot;</span>] <span style="color: #666666">==</span> <span style="color: #666666">4.08</span>)<br/></pre></div>
+
+
+<br/>
+
+<p>Fügen Sie ihre Lösung in folgendes Textfeld ein / Paste your solution into the following text field</p>
+
+<hr style="height: 5px; background-color: #000;"/>
+<p>Points: 15</p>
+
+<h5>DEUTSCH</h5>
+<p>Vervollständigen Sie die Implementation einer Funktion namens <span style="font-family: terminal, monaco, monospace;">censor</span>, welche zwei Parameter annimmt: Einen string <span style="font-family: terminal, monaco, monospace;">text</span> und eine Liste von kleingeschriebenen, alphabetischen strings <span style="font-family: terminal, monaco, monospace;">censored_words</span>. Die Funktion soll <span style="font-family: terminal, monaco, monospace;">text</span> zensieren. Ein Teil der Implementation existiert bereits:</p>
+<ul>
+<li><span style="font-family: terminal, monaco, monospace;">text</span> wird mittels <a href="https://docs.python.org/3.9/library/stdtypes.html#str.split">str.split()</a> getrennt. Hierbei werden die Worte in <span style="font-family: terminal, monaco, monospace;">text</span> inklusive der anliegenden Sonderzeichen in einer Liste <span style="font-family: terminal, monaco, monospace;">words</span> gespeichert. Wenn <span style="font-family: terminal, monaco, monospace;">text</span> zum Beispiel <span style="font-family: terminal, monaco, monospace;">"Hello, World!"</span> ist, wird <span style="font-family: terminal, monaco, monospace;">words</span> den Wert <span style="font-family: terminal, monaco, monospace;">['Hello,', 'World!']</span> haben.</li>
+
+<li>Eine leere Liste <span style="font-family: terminal, monaco, monospace;">res</span> wird erstellt.</li>
+<li>Am Ende der Funktion werden die Elemente in res mit Leerzeichen verbunden um den zensierten Text zurückzugeben.</li>
+</ul>
+Um die Funktion zu vervollständigen, gehen Sie wie folgt vor:
+<ul>
+<li>Für jedes Wort in <span style="font-family: terminal, monaco, monospace;">words</span>, prüfen Sie ob das Wort (kleingeschrieben und ohne nicht-alphabetische Zeichen) in <span style="font-family: terminal, monaco, monospace;">censored_words</span> vorkommt.</li>
+<li>Wenn nein, fügen Sie das Wort unverändert (also mit ursprünglicher Gross-Kleinschreibung und Sonderzeichen) zu <span style="font-family: terminal, monaco, monospace;">res</span> hinzu.</li>
+<li>Wenn ja, dann ersetzen Sie alle alphabetischen Buchstaben mit dem Symbol "#" (wobei nicht-alphabetische Zeichen erhalten bleiben sollen) und fügen Sie das Ergebnis zu <span style="font-family: terminal, monaco, monospace;">res</span> hinzu.</li>
+</ul>
+<p>Betrachten Sie die angegebene Assertions für Beispiele dieses Vorgehens!</p>
+
+<p>Sie können davon ausgehen, dass die Funktion nur mit Parametern aufgerufen wird, wie sie im ersten Satz beschrieben sind.</p>
+
+<h5>ENGLISH</h5>
+<p>Complete the implementation of a function <span style="font-family: terminal, monaco, monospace;">censor</span>, which takes two parameters: a string <span style="font-family: terminal, monaco, monospace;">text</span> and a list of lower-case, alphabetical Strings <span style="font-family: terminal, monaco, monospace;">censored_words</span>. The function should censor <span style="font-family: terminal, monaco, monospace;">text</span>. A part of the implementation already exists:</p>
+<ul>
+<li><span style="font-family: terminal, monaco, monospace;">text</span> is split using <a href="https://docs.python.org/3.9/library/stdtypes.html#str.split">str.split()</a>. Thereby, the words in <span style="font-family: terminal, monaco, monospace;">text</span> are added to a list <span style="font-family: terminal, monaco, monospace;">words</span>, including adjacent special characters. For example, if <span style="font-family: terminal, monaco, monospace;">text</span> is <span style="font-family: terminal, monaco, monospace;">"Hello, World!"</span>, then <span style="font-family: terminal, monaco, monospace;">words</span> will be <span style="font-family: terminal, monaco, monospace;">['Hello,', 'World!']</span></li>
+<li>An empty list <span style="font-family: terminal, monaco, monospace;">res</span> is created</li>
+<li>At the end of the function, the elements in res are joined together using spaces to return the censored text.</li>
+</ul>
+To complete the function, proceed as follows:
+<ul>
+<li>For every word in <span style="font-family: terminal, monaco, monospace;">words</span>, check if the word (lower case and without non-alphabetical characters) appears in <span style="font-family: terminal, monaco, monospace;">censored_words</span>.</li>
+<li>If not, add the unchanged word (i.e. with original casing and non-alphabetical characters) to <span style="font-family: terminal, monaco, monospace;">res</span>.</li>
+<li>If yes, replace all alphabetical characters with "#" (leaving other characters unchanged) and add the result to <span style="font-family: terminal, monaco, monospace;">res</span>.</li>
+</ul>
+<p>View the provided assertions for examples of this procedure!</p>
+
+<p>You can assume that the function is only called with valid parameters.</p>
+
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><span style="color: #408080; font-style: italic">#-- THIS LINE SHOULD BE THE FIRST LINE OF YOUR SUBMISSION! --#</span><br/><br/><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">censor</span>(text, censored_words):<br/>&nbsp;&nbsp;&nbsp;&nbsp;words <span style="color: #666666">=</span> text<span style="color: #666666">.</span>split()<br/>&nbsp;&nbsp;&nbsp;&nbsp;res <span style="color: #666666">=</span> []<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #408080; font-style: italic"># complete the function implementation here</span><br/>&nbsp;&nbsp;&nbsp;&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #008000; font-weight: bold">return</span> <span style="color: #BA2121">&quot; &quot;</span><span style="color: #666666">.</span>join(res)<br/><br/><span style="color: #408080; font-style: italic">#-- THIS LINE SHOULD BE THE LAST LINE OF YOUR SUBMISSION! ---#</span><br/><br/><span style="color: #408080; font-style: italic">### DO NOT SUBMIT THE FOLLOWING LINES!!! THESE ARE FOR LOCAL TESTING ONLY!</span><br/><span style="color: #008000; font-weight: bold">assert</span>(censor(<span style="color: #BA2121">&quot;Hello, World!&quot;</span>, [<span style="color: #BA2121">&quot;hello&quot;</span>])<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #666666">==</span> <span style="color: #BA2121">&quot;#####, World!&quot;</span>)<br/><span style="color: #008000; font-weight: bold">assert</span>(censor(<span style="color: #BA2121">&quot;Everything is going to be fine!&quot;</span>, [<span style="color: #BA2121">&quot;everything&quot;</span>, <span style="color: #BA2121">&quot;fine&quot;</span>])<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #666666">==</span> <span style="color: #BA2121">&quot;########## is going to be ####!&quot;</span>)<br/><span style="color: #008000; font-weight: bold">assert</span>(censor(<span style="color: #BA2121">&quot;&quot;</span>, [<span style="color: #BA2121">&quot;does&quot;</span>, <span style="color: #BA2121">&quot;not&quot;</span>, <span style="color: #BA2121">&quot;matter&quot;</span>])<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #666666">==</span> <span style="color: #BA2121">&quot;&quot;</span>)<br/><span style="color: #008000; font-weight: bold">assert</span>(censor(<span style="color: #BA2121">&quot;Everything is going to be fine!&quot;</span>, [])<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #666666">==</span> <span style="color: #BA2121">&quot;Everything is going to be fine!&quot;</span>)<br/></pre></div>
+
+
+<br/>
+
+<p>Fügen Sie ihre Lösung in folgendes Textfeld ein / Paste your solution into the following text field</p>
+
+<hr style="height: 5px; background-color: #000;"/>
+<p>Points: 15</p>
+
+<h5>DEUTSCH</h5>
+
+<p>Sie arbeiten für eine Firma, die farbige Plastikbälle verkauft und liefert. Es gibt viele verschiedene Farben. Kunden können beliebig viele Bälle von beliebiger Farbe bestellen. Sie haben zwei Arten von Kartons, um die Bälle zu liefern: der kleine Karton kann bis zu 100 Bälle beinhalten und der grosse bis zu 500 Bälle. Es ist okay, Bälle von verschiedenen Farben in einem Karton zu vermischen. Preise für Bälle und Verpackungsmaterial richten sich nach dem Markt.</p>
+
+<p>Wenn eine Bestellung mehrere Kartons benötigt, gilt die Priorität, möglichst wenig Kartons zu verwenden. Das bedeutet, dass Sie grosse Kartons benutzen, bis fast alle Bälle verpackt sind. Wenn der Rest in eine kleinen Karton passt, verwenden Sie den, anstatt einen weiteren grossen.</p>
+
+<p>Um zum Beispiel 50 blaue Bälle, 500 gelbe Bälle und 500 grüne Bälle (total 1050 Bälle) zu liefern, bräuchten Sie 2 grosse Kartons und einen kleinen Karton. Würden Sie zusätzlich weitere 100 rote Bälle liefern, dann bräuchten Sie stattdessen 3 grosse Kartons.</p>
+
+<p>Betrachten Sie die angegebene Assertions für Beispiele dieses Vorgehens!</p>
+
+<p>Implementieren sie eine Funktion namens <span style="font-family: terminal, monaco, monospace;">pack_and_bill</span>, die zwei Parameter annimt: eine Liste von positiven integern <span style="font-family: terminal, monaco, monospace;">order</span>, die die Anzahl bestellter Bälle verschiedener Farben repräsentiert, und ein dictionary <span style="font-family: terminal, monaco, monospace;">prices</span>, welches die aktuellen Preise für Bälle und Verpackung enthält. Das vorgegebene Beispiel zeigt, wie <span style="font-family: terminal, monaco, monospace;">prices</span> strukturiert ist. Die Funktion soll berechnen, wieviele grosse und kleine Kartons für die Lieferung benötigt werden, und wieviel die Lieferung kostet (gerundet auf zwei Nachkommastellen). Sie soll dann diese drei Werte als Tuple zurückgeben.</p>
+
+<p>Sie können davon ausgehen, dass die Funktion nur mit gültigen Parametern aufgerufen wird.</p>
+
+<p>Verwenden Sie bei der Berechnung des Preises unbedingt die Werte, welche im Parameter <span style="font-family: terminal, monaco, monospace;">prices</span> übergeben werden.</p>
+
+<h5>ENGLISH</h5>
+
+<p>You are working for a company that sells and ships colored plastic balls. There are many different colors of balls. Customers can order any number of balls of any color. You have two types of boxes available for shipping these balls: the small box can contain up to 100 balls and the large box can contain up to 500 balls. It's okay to mix balls of different colors into a single box. Prices for balls and packing materials change with the market.</p>
+
+<p>If an order requires multiple boxes, the priority lies with having the smallest possible number of boxes. This means that you use large boxes until almost all balls are packed. If the remained fits into a small box, use that as your last box instead of a large one.</p>
+
+<p>For example, to ship 50 blue balls, 500 yellow balls and 500 green balls (total 1050 balls), you would need 2 large boxes and one small box. If you were shipping an additional 100 red balls, then you'd need 3 large boxes instead.</p>
+
+<p>See the provided assertions for additional examples!</p>
+
+<p>Implement a function <span style="font-family: terminal, monaco, monospace;">pack_and_bill</span>, which takes two parameters: a list of positive integers <span style="font-family: terminal, monaco, monospace;">order</span>, represending how many balls of each color are being ordered, and a dictionary <span style="font-family: terminal, monaco, monospace;">prices</span>, which contains the prices for balls and packing materials. See the provided example for how <span style="font-family: terminal, monaco, monospace;">prices</span> is structured. The function should calculate how many large and small boxes are necessary to ship the order, as well as the total price of the order (rounded to two decimal places). It should then return these three numbers as a tuple.
+
+<p>You can assume that the function is only called with valid parameters.</p>
+
+<p>To calculate the price, make sure to use the values given via the <span style="font-family: terminal, monaco, monospace;">prices</span> parameter.</p>
+
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><span style="color: #408080; font-style: italic">#-- THIS LINE SHOULD BE THE FIRST LINE OF YOUR SUBMISSION! --#</span><br/><br/><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">pack_and_bill</span>(order, prices):<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #008000; font-weight: bold">pass</span><br/><br/><span style="color: #408080; font-style: italic">#-- THIS LINE SHOULD BE THE LAST LINE OF YOUR SUBMISSION! ---#</span><br/><br/><span style="color: #408080; font-style: italic">### DO NOT SUBMIT THE FOLLOWING LINES!!! THESE ARE FOR LOCAL TESTING ONLY!</span><br/>prices <span style="color: #666666">=</span> {<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #BA2121">&quot;ball&quot;</span>:     <span style="color: #666666">0.20</span>,<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #BA2121">&quot;smallbox&quot;</span>: <span style="color: #666666">4.50</span>,<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #BA2121">&quot;largebox&quot;</span>: <span style="color: #666666">7.50</span><br/>}<br/><span style="color: #008000; font-weight: bold">assert</span>(pack_and_bill([<span style="color: #666666">1</span>], prices)            <span style="color: #666666">==</span> (<span style="color: #666666">0</span>, <span style="color: #666666">1</span>, <span style="color: #666666">4.70</span>))   <span style="color: #408080; font-style: italic"># 0 large boxes, 1 small box, total price 4.50 + 0.20 * 1</span><br/><span style="color: #008000; font-weight: bold">assert</span>(pack_and_bill([<span style="color: #666666">500</span>], prices)          <span style="color: #666666">==</span> (<span style="color: #666666">1</span>, <span style="color: #666666">0</span>, <span style="color: #666666">107.50</span>)) <span style="color: #408080; font-style: italic"># 1 large box, 0 small boxes, total price 7.50 + 0.20 * 500</span><br/><span style="color: #008000; font-weight: bold">assert</span>(pack_and_bill([<span style="color: #666666">600</span>], prices)          <span style="color: #666666">==</span> (<span style="color: #666666">1</span>, <span style="color: #666666">1</span>, <span style="color: #666666">132.00</span>))<br/><span style="color: #008000; font-weight: bold">assert</span>(pack_and_bill([<span style="color: #666666">601</span>], prices)          <span style="color: #666666">==</span> (<span style="color: #666666">2</span>, <span style="color: #666666">0</span>, <span style="color: #666666">135.20</span>))<br/><span style="color: #008000; font-weight: bold">assert</span>(pack_and_bill([<span style="color: #666666">50</span>, <span style="color: #666666">500</span>, <span style="color: #666666">500</span>], prices) <span style="color: #666666">==</span> (<span style="color: #666666">2</span>, <span style="color: #666666">1</span>, <span style="color: #666666">229.50</span>))<br/></pre></div>
+
+
+
+<br/>
+
+<p>Fügen Sie ihre Lösung in folgendes Textfeld ein / Paste your solution into the following text field</p>
+<h1>Classes (1 out of 3)</h1>
+<hr style="height: 5px; background-color: #000;"/>
+<p>Points: 15</p>
+
+<h5>DEUTSCH</h5>
+<p>Implementieren sie eine Klasse namens <span style="font-family: terminal, monaco, monospace;">Revolver</span>, die für eine Simulation von <a href="https://de.wikipedia.org/wiki/Russisch_Roulette" target="_blank">"Russisch Roulette"</a> verwendet werden könnte.</p>
+
+<p>Die Klasse soll im Konstruktor einen Parameter <span style="font-family: terminal, monaco, monospace;">cylinder_size</span> annehmen, der die Trommelgrösse (Anzahl Kammern für Kugeln) festlegt. <span style="font-family: terminal, monaco, monospace;">Revolver</span> soll eine Methode <span style="font-family: terminal, monaco, monospace;">reload</span> haben, welche genau eine Kugel in eine zufällige Kammer der Trommel lädt. Diese Funktion soll während der Instanzierung ebenfalls aufgerufen werden. Ein neu instanziertes Objekt dieser Klasse soll somit einen Revolver repräsentieren, in dem genau <strong>eine</strong> zufällig gewählte Kammer mit einer Kugel geladen ist. Die Klasse soll eine Methode <span style="font-family: terminal, monaco, monospace;">trigger</span> definieren, die bei einem Aufruf entweder "BANG!!!" oder "Click!" zurückgibt (je nachdem ob die aktuelle Kammer eine Kugel enthält oder nicht), und die Trommel dann zur nächsten Kammer dreht.</p>
+
+<p>Beachten Sie folgende Überlegungen:</p>
+<ul>
+<li>Wenn noch kein Schuss gefallen ist steigt mit jedem weiteren Aufruf von <span style="font-family: terminal, monaco, monospace;">trigger</span> die Wahrscheinlichkeit, dass der nächte Aufruf einen Schuss auslöst.</li>
+<li>Nachdem ein Revolver einen Schuss ausgelöst hat, wird <span style="font-family: terminal, monaco, monospace;">trigger</span> immer "Click!" zurückgeben müssen (denn es gibt keine Kugeln mehr in der Trommel) solange bis wieder <span style="font-family: terminal, monaco, monospace;">reload</span> aufgerufen wird (und somit wieder eine zufällige Kammer mit einer Kugel geladen ist).</li>
+<li>Innerhalb der ersten <span style="font-family: terminal, monaco, monospace;">cyliner_size</span> Aufrufe von <span style="font-family: terminal, monaco, monospace;">trigger</span> nach der Instanzieren oder einem direkten Aufruf von <span style="font-family: terminal, monaco, monospace;">reload</span> muss sicherlich ein Schuss fallen, weil jede Kammer einmal ausgelöst wurde.</li>
+</ul>
+
+<h5>ENGLISH</h5>
+<p>Implement a class <span style="font-family: terminal, monaco, monospace;">Revolver</span> which could be used to simulate <a href="https://en.wikipedia.org/wiki/Russian_roulette" target="_blank">"Russian Roulette"</a>.</p>
+
+<p>The class should take a parameter <span style="font-family: terminal, monaco, monospace;">cylinder_size</span> which configures the cylinder size (number of chambers). <span style="font-family: terminal, monaco, monospace;">Revolver</span> should implement a method <span style="font-family: terminal, monaco, monospace;">reload</span>, which loads exactly one bullet into a random chamber of the cylinder. This method should also be called during instantiation. Hence, a newly instantiated object of this class represents a revolver, in which exactly <strong>one</strong> randomly chosen chamber is loaded with a bullet. The class should define a method <span style="font-family: terminal, monaco, monospace;">trigger</span>, which returns either "BANG!!!" oder "Click!", depending on whether the current chamber contains a bullet and then turns the cylinder to the next chamber.</p>
+
+<p>Consider the following:</p>
+<ul>
+<li>If no shot has been fired, the probability of the next call to <span style="font-family: terminal, monaco, monospace;">trigger</span> firing a bullet rises with each subsequent call.</li>
+<li>After a revolver has fired a shot, <span style="font-family: terminal, monaco, monospace;">trigger</span> must always return "Click!" (because there are no more bullets in the cylinder) until <span style="font-family: terminal, monaco, monospace;">reload</span> is called again (after which once again a random chamber is loaded with a bullet).</lie>
+<li>Within the first <span style="font-family: terminal, monaco, monospace;">cylinder_size</span> calls to <span style="font-family: terminal, monaco, monospace;">trigger</span> after instantiation or a call to <span style="font-family: terminal, monaco, monospace;">reload</span>, a shot must definitely be fired, because every chamber will have been triggered once.</li>
+</ul>
+
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><span style="color: #408080; font-style: italic">#-- THIS LINE SHOULD BE THE FIRST LINE OF YOUR SUBMISSION! --#</span><br/><br/><span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">random</span><br/><br/><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Revolver</span>:<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #008000; font-weight: bold">pass</span><br/><br/><span style="color: #408080; font-style: italic">#-- THIS LINE SHOULD BE THE LAST LINE OF YOUR SUBMISSION! ---#</span><br/><br/><span style="color: #408080; font-style: italic">### DO NOT SUBMIT THE FOLLOWING LINES!!! THESE ARE FOR LOCAL TESTING ONLY!</span><br/>gun <span style="color: #666666">=</span> Revolver(<span style="color: #666666">6</span>)<br/>turns <span style="color: #666666">=</span> [gun<span style="color: #666666">.</span>trigger() <span style="color: #008000; font-weight: bold">for</span> i <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(<span style="color: #666666">10</span>)]<br/><span style="color: #008000; font-weight: bold">assert</span>(<span style="color: #BA2121">&quot;BANG!!!&quot;</span> <span style="color: #AA22FF; font-weight: bold">in</span> turns[<span style="color: #666666">0</span>:<span style="color: #666666">6</span>])<br/><span style="color: #008000; font-weight: bold">assert</span>(<span style="color: #BA2121">&quot;BANG!!!&quot;</span> <span style="color: #AA22FF; font-weight: bold">not</span> <span style="color: #AA22FF; font-weight: bold">in</span> turns[<span style="color: #666666">6</span>:])<br/>gun<span style="color: #666666">.</span>reload()<br/>turns <span style="color: #666666">=</span> [gun<span style="color: #666666">.</span>trigger() <span style="color: #008000; font-weight: bold">for</span> i <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(<span style="color: #666666">10</span>)]<br/><span style="color: #008000; font-weight: bold">assert</span>(<span style="color: #BA2121">&quot;BANG!!!&quot;</span> <span style="color: #AA22FF; font-weight: bold">in</span> turns[<span style="color: #666666">0</span>:<span style="color: #666666">6</span>])<br/><span style="color: #008000; font-weight: bold">assert</span>(<span style="color: #BA2121">&quot;BANG!!!&quot;</span> <span style="color: #AA22FF; font-weight: bold">not</span> <span style="color: #AA22FF; font-weight: bold">in</span> turns[<span style="color: #666666">6</span>:])<br/></pre></div>
+
+
+
+<br/>
+
+<p>Fügen Sie ihre Lösung in folgendes Textfeld ein / Paste your solution into the following text field</p>
+
+<hr style="height: 5px; background-color: #000;"/>
+<p>Points: 15</p>
+
+<h5>DEUTSCH</h5>
+
+<p>Implementieren Sie zwei Klassen, <span style="font-family: terminal, monaco, monospace;">Student</span> und <span style="font-family: terminal, monaco, monospace;">Classroom</span>.
+
+<p>Ein <span style="font-family: terminal, monaco, monospace;">Student</span> soll drei Instanzattribute haben: <span style="font-family: terminal, monaco, monospace;">fname</span>, <span style="font-family: terminal, monaco, monospace;">lname</span> und <span style="font-family: terminal, monaco, monospace;">matno</span>. <span style="font-family: terminal, monaco, monospace;">fname</span> and <span style="font-family: terminal, monaco, monospace;">lname</span> sind Strings and sollen im Konstruktor übergeben werden. <span style="font-family: terminal, monaco, monospace;">matno</span> soll ein Integer sein, <span style="font-family: terminal, monaco, monospace;">0</span> für den ersten instanzierten <span style="font-family: terminal, monaco, monospace;">Student</span>, <span style="font-family: terminal, monaco, monospace;">1</span> für den zweiten instanzierten <span style="font-family: terminal, monaco, monospace;">Student</span>, und so weiter: bei jedem neu instanzierten <span style="font-family: terminal, monaco, monospace;">Student</span>, soll ein um <span style="font-family: terminal, monaco, monospace;">1</span> incrementierter Wert <span style="font-family: terminal, monaco, monospace;">matno</span> zugewiesen werden. <span style="font-family: terminal, monaco, monospace;">Student</span> hat keine weiteren Methoden.</p>
+
+<p>Ein <span style="font-family: terminal, monaco, monospace;">Classroom</span> hat bei der Instanzierung ein leeres Dictionary <span style="font-family: terminal, monaco, monospace;">students</span> als Instanzattribut. Es werden keine Parameter im Konstruktor übergeben. Das <span style="font-family: terminal, monaco, monospace;">students</span> Dictionary ist ein Mapping von <span style="font-family: terminal, monaco, monospace;">matno</span> nach <span style="font-family: terminal, monaco, monospace;">Student</span>. <span style="font-family: terminal, monaco, monospace;">Classroom</span> soll zwei Methoden definieren. Die Methode <span style="font-family: terminal, monaco, monospace;">add</span> soll ein <span style="font-family: terminal, monaco, monospace;">Student</span> als Parameter <span style="font-family: terminal, monaco, monospace;">s</span> annehmen und es <span style="font-family: terminal, monaco, monospace;">students</span> hinzufügen, wobei <span style="font-family: terminal, monaco, monospace;">s.matno</span> als Schlüssel und <span style="font-family: terminal, monaco, monospace;">s</span> als Wert verwendet werden soll. Wenn <span style="font-family: terminal, monaco, monospace;">s.matno</span> schon in <span style="font-family: terminal, monaco, monospace;">students</span> ist, soll ein <span style="font-family: terminal, monaco, monospace;">ValueError</span> verursacht werden. Die Methode <span style="font-family: terminal, monaco, monospace;">remove</span> soll einen Integer-Parameter <span style="font-family: terminal, monaco, monospace;">matno</span> annehmen und den entsprechenden <span style="font-family: terminal, monaco, monospace;">Student</span> aus <span style="font-family: terminal, monaco, monospace;">students</span> entfernen. Wenn <span style="font-family: terminal, monaco, monospace;">matno</span> nicht in <span style="font-family: terminal, monaco, monospace;">students</span> ist, soll ein <span style="font-family: terminal, monaco, monospace;">IndexError</span> verursacht werden.
+
+<p>Sie können davon ausgehen, dass die Konstruktoren nur mit gültigen Parametern aufgerufen werden.</p>
+
+<p><strong>Achtung!</strong> Verwenden Sie keinesfalls globale Variabeln, um die Inkrementierung von <span style="font-family: terminal, monaco, monospace;">matno</span> zu ermöglichen! Im globalen scope Ihrer Lösung dürfen sich nur die Klassendefinitionen für <span style="font-family: terminal, monaco, monospace;">Student</span> und <span style="font-family: terminal, monaco, monospace;">Classroom</span> befinden.</p>
+
+<h5>ENGLISH</h5>
+
+<p>Implement two classes, <span style="font-family: terminal, monaco, monospace;">Student</span> and <span style="font-family: terminal, monaco, monospace;">Classroom</span>.
+
+<p>A <span style="font-family: terminal, monaco, monospace;">Student</span> should have three instance attributes: <span style="font-family: terminal, monaco, monospace;">fname</span>, <span style="font-family: terminal, monaco, monospace;">lname</span> and <span style="font-family: terminal, monaco, monospace;">matno</span>. <span style="font-family: terminal, monaco, monospace;">fname</span> and <span style="font-family: terminal, monaco, monospace;">lname</span> are strings and should be passed in the constructor. <span style="font-family: terminal, monaco, monospace;">matno</span> should be an integer which is <span style="font-family: terminal, monaco, monospace;">0</span> for the first <span style="font-family: terminal, monaco, monospace;">Student</span> instantiated, <span style="font-family: terminal, monaco, monospace;">1</span> for the second <span style="font-family: terminal, monaco, monospace;">Student</span> instantiated, and so forth: for every newly instantiated <span style="font-family: terminal, monaco, monospace;">Student</span>, a <span style="font-family: terminal, monaco, monospace;">matno</span> incremented by <span style="font-family: terminal, monaco, monospace;">1</span> should be assigned. <span style="font-family: terminal, monaco, monospace;">Student</span> has no further methods.</p>
+
+<p>A <span style="font-family: terminal, monaco, monospace;">Classroom</span> has an empty dictionary <span style="font-family: terminal, monaco, monospace;">students</span> as an instance attribute when newly instantiated. No parameters are supplied upon construction. The <span style="font-family: terminal, monaco, monospace;">students</span> dictionary is a mapping from <span style="font-family: terminal, monaco, monospace;">matno</span> to <span style="font-family: terminal, monaco, monospace;">Student</span>. <span style="font-family: terminal, monaco, monospace;">Classroom</span> should define two methods. The method <span style="font-family: terminal, monaco, monospace;">add</span> should take a <span style="font-family: terminal, monaco, monospace;">Student</span> as parameter <span style="font-family: terminal, monaco, monospace;">s</span> and add it to <span style="font-family: terminal, monaco, monospace;">students</span>, using <span style="font-family: terminal, monaco, monospace;">s.matno</span> as key, and <span style="font-family: terminal, monaco, monospace;">s</span> as value. If <span style="font-family: terminal, monaco, monospace;">s.matno</span> is already in <span style="font-family: terminal, monaco, monospace;">students</span>, a <span style="font-family: terminal, monaco, monospace;">ValueError</span> should be raised. The method <span style="font-family: terminal, monaco, monospace;">remove</span> should take an integer parameter <span style="font-family: terminal, monaco, monospace;">matno</span> and remove the corresponding <span style="font-family: terminal, monaco, monospace;">Student</span> from <span style="font-family: terminal, monaco, monospace;">students</span>. If <span style="font-family: terminal, monaco, monospace;">matno</span> is not in <span style="font-family: terminal, monaco, monospace;">students</span>, raise an <span style="font-family: terminal, monaco, monospace;">IndexError</span>.
+
+<p>You can assume that constructors are only called with valid parameters.</p>
+
+<p><strong>Caution!</strong> Under no circumstances should you use global Variables to facilitate the incrementation of <span style="font-family: terminal, monaco, monospace;">matno</span>! The global scope of your solution may only contain the class definitions for <span style="font-family: terminal, monaco, monospace;">Student</span> and <span style="font-family: terminal, monaco, monospace;">Classroom</span>.</p>
+
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><span style="color: #408080; font-style: italic">#-- THIS LINE SHOULD BE THE FIRST LINE OF YOUR SUBMISSION! --#</span><br/><br/><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Classroom</span>:<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #008000; font-weight: bold">pass</span><br/><br/><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Student</span>:<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #008000; font-weight: bold">pass</span><br/><br/><span style="color: #408080; font-style: italic">#-- THIS LINE SHOULD BE THE LAST LINE OF YOUR SUBMISSION! ---#</span><br/><br/><span style="color: #408080; font-style: italic">### DO NOT SUBMIT THE FOLLOWING LINES!!! THESE ARE FOR LOCAL TESTING ONLY!</span><br/>s1 <span style="color: #666666">=</span> Student(<span style="color: #BA2121">&quot;Alice&quot;</span>, <span style="color: #BA2121">&quot;Bauer&quot;</span>)<br/>s2 <span style="color: #666666">=</span> Student(<span style="color: #BA2121">&quot;Jack&quot;</span>, <span style="color: #BA2121">&quot;Wonderland&quot;</span>)<br/><span style="color: #008000; font-weight: bold">assert</span>(s1<span style="color: #666666">.</span>matno <span style="color: #666666">==</span> <span style="color: #666666">0</span>)<br/><span style="color: #008000; font-weight: bold">assert</span>(s2<span style="color: #666666">.</span>matno <span style="color: #666666">==</span> <span style="color: #666666">1</span>)<br/>c <span style="color: #666666">=</span> Classroom()<br/>c<span style="color: #666666">.</span>add(s1)<br/>c<span style="color: #666666">.</span>add(s2)<br/><span style="color: #008000; font-weight: bold">assert</span>(<span style="color: #008000">len</span>(c<span style="color: #666666">.</span>students) <span style="color: #666666">==</span> <span style="color: #666666">2</span>)<br/>c<span style="color: #666666">.</span>remove(s2<span style="color: #666666">.</span>matno)<br/><span style="color: #008000; font-weight: bold">assert</span>(<span style="color: #008000">len</span>(c<span style="color: #666666">.</span>students) <span style="color: #666666">==</span> <span style="color: #666666">1</span>)<br/><span style="color: #008000; font-weight: bold">try</span>: <span style="color: #408080; font-style: italic"># adding a student already in c</span><br/>&nbsp;&nbsp;&nbsp;&nbsp;c<span style="color: #666666">.</span>add(s1)<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #008000; font-weight: bold">assert</span>(<span style="color: #008000; font-weight: bold">False</span>) <span style="color: #408080; font-style: italic"># expected a ValueError!</span><br/><span style="color: #008000; font-weight: bold">except</span> <span style="color: #D2413A; font-weight: bold">ValueError</span>:<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #008000; font-weight: bold">pass</span> <span style="color: #408080; font-style: italic"># the correct exception has been thrown</span><br/><span style="color: #008000; font-weight: bold">try</span>: <span style="color: #408080; font-style: italic"># removing a student not in c</span><br/>&nbsp;&nbsp;&nbsp;&nbsp;c<span style="color: #666666">.</span>remove(s2<span style="color: #666666">.</span>matno)<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #008000; font-weight: bold">assert</span>(<span style="color: #008000; font-weight: bold">False</span>) <span style="color: #408080; font-style: italic"># expected a ValueError!</span><br/><span style="color: #008000; font-weight: bold">except</span> <span style="color: #D2413A; font-weight: bold">IndexError</span>:<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #008000; font-weight: bold">pass</span> <span style="color: #408080; font-style: italic"># the correct exception has been thrown</span><br/></pre></div>
+
+
+<br/>
+
+<p>Fügen Sie ihre Lösung in folgendes Textfeld ein / Paste your solution into the following text field</p>
+
+<hr style="height: 5px; background-color: #000;"/>
+<p>Points: 15</p>
+
+<h5>DEUTSCH</h5>
+
+<p>Implementieren Sie eine Klasse <span style="font-family: terminal, monaco, monospace;">Person</span>. Objekte dieser Klasse sollen drei Instanzattribute haben: <span style="font-family: terminal, monaco, monospace;">name</span>, <span style="font-family: terminal, monaco, monospace;">sex</span>, und <span style="font-family: terminal, monaco, monospace;">offspring</span>. <span style="font-family: terminal, monaco, monospace;">sex</span> ist ein String, entweder "f" oder "m", der optional im Konstruktor übergeben werden kann. Wird er nicht übergeben, so soll <span style="font-family: terminal, monaco, monospace;">sex</span> bei der Instanzierung zufällig zugewiesen werden. <span style="font-family: terminal, monaco, monospace;">name</span> ist ein String, der optional im Konstruktor übergeben werden kann. Wird kein Wert übergeben, so soll <span style="font-family: terminal, monaco, monospace;">name</span> nach der Instanzierung None sein. <span style="font-family: terminal, monaco, monospace;">offspring</span> soll bei der Instanzierung eine leere Liste sein.</p>
+
+<p><span style="font-family: terminal, monaco, monospace;">Person</span> soll eine Methode <span style="font-family: terminal, monaco, monospace;">mate_with</span> implementieren, die einen Parameter <span style="font-family: terminal, monaco, monospace;">other</span> vom Typ <span style="font-family: terminal, monaco, monospace;">Person</span> annimt. Wird die Funktion aufgerufen, so sollen erst die Attribute <span style="font-family: terminal, monaco, monospace;">sex</span> von <span style="font-family: terminal, monaco, monospace;">self</span> und <span style="font-family: terminal, monaco, monospace;">other</span> verglichen werden. Sind sie identisch, so soll ein <span style="font-family: terminal, monaco, monospace;">ValueError</span> verursacht werden. Ansonsten soll ein neues Objekt vom Typ <span style="font-family: terminal, monaco, monospace;">Person</span> ohne Konstruktorparameter instanziert werden. Das neue Objekt soll sowohl bei <span style="font-family: terminal, monaco, monospace;">self</span> als auch bei <span style="font-family: terminal, monaco, monospace;">other</span> dem Instanzattribut <span style="font-family: terminal, monaco, monospace;">offspring</span> hinzugefügt werden. Die Funktion soll am Ende ausserdem das neu instanzierte Objekt zurückgeben.</p>
+
+<p>Implementieren Sie <span style="font-family: terminal, monaco, monospace;">__str__</span> und <span style="font-family: terminal, monaco, monospace;">__repr__</span>. Beide Funktionen sollen genau den gleichen Wert zurückgeben. Wenn in der Instanz <span style="font-family: terminal, monaco, monospace;">offspring</span> leer ist, so sollen diese Funktionen einen String nach dem Schema "NAME (SEX) has no children" zurückgeben. Falls nicht, so soll folgendes Schema verwendet werden: "NAME (SEX) has N children: A, B, C, ...", wo N die Anzahl Objekte in <span style="font-family: terminal, monaco, monospace;">offspring</span> repräsentiert, und A, B, C, etc. die <span style="font-family: terminal, monaco, monospace;">name</span>-Attribute der Objekte in <span style="font-family: terminal, monaco, monospace;">offspring</span>. Beachten Sie, dass bei nur einem Element, das Wort "child" anstatt "children" im String verwendet werden soll. Betrachten Sie die angegebene Assertions für gültige Beispiele der zurückgegebenen Strings.</p>
+
+<p>Sie können davon ausgehen, dass die Konstruktoren nur mit gültigen Parametern aufgerufen werden.</p>
+
+<h5>ENGLISH</h5>
+
+<p>Implement a class <span style="font-family: terminal, monaco, monospace;">Person</span>. Objects of this class should have three instance attributes: <span style="font-family: terminal, monaco, monospace;">name</span>, <span style="font-family: terminal, monaco, monospace;">sex</span>, and <span style="font-family: terminal, monaco, monospace;">offspring</span>. <span style="font-family: terminal, monaco, monospace;">sex</span> is a string, either "f" or "m", which can be optionally supplied in the constructor. If it's not supplied, <span style="font-family: terminal, monaco, monospace;">sex</span> should be assigned randomly upon instantiation. <span style="font-family: terminal, monaco, monospace;">name</span> is a string, which can be optionally supplied in the constructor. If no value is supplied, <span style="font-family: terminal, monaco, monospace;">name</span> should be None after instantiation. <span style="font-family: terminal, monaco, monospace;">offspring</span> should be an empty list after instantiation.</p>
+
+<p><span style="font-family: terminal, monaco, monospace;">Person</span> should implement a method <span style="font-family: terminal, monaco, monospace;">mate_with</span>, which takes one parameter of type <span style="font-family: terminal, monaco, monospace;">Person</span>. When called, this function should first compare the <span style="font-family: terminal, monaco, monospace;">sex</span> attributes of <span style="font-family: terminal, monaco, monospace;">self</span> and <span style="font-family: terminal, monaco, monospace;">other</span>. If they are identical, a <span style="font-family: terminal, monaco, monospace;">ValueError</span> should be raised. Otherwise, a new object of type <span style="font-family: terminal, monaco, monospace;">Person</span> should be instantiated without passing parameters to the constructor. The new object should be added to the <span style="font-family: terminal, monaco, monospace;">offspring</span> instance attribute of both <span style="font-family: terminal, monaco, monospace;">self</span> and <span style="font-family: terminal, monaco, monospace;">other</span>. Finally, the function should also return the newly instantiated object.</p>
+
+<p>Implement <span style="font-family: terminal, monaco, monospace;">__str__</span> and <span style="font-family: terminal, monaco, monospace;">__repr__</span>. Both functions should return the exact same value. If the attribute <span style="font-family: terminal, monaco, monospace;">offspring</span> of the instance is empty, the function should return a string like "NAME (SEX) has no children". If not, the following template should be used: "NAME (SEX) has N children: A, B, C, ...", where N is the number of objects in <span style="font-family: terminal, monaco, monospace;">offspring</span> and A, B, C, etc. are the <span style="font-family: terminal, monaco, monospace;">name</span> attributes of the objects in <span style="font-family: terminal, monaco, monospace;">offspring</span>. Note that if there's only one element, the word "child" should be used instead of "children". View the provided assertions for more valid examples of the string to be returned.</p>
+
+<p>You can assume that constructors are only called with valid parameters.</p>
+
+
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><span style="color: #408080; font-style: italic">#-- THIS LINE SHOULD BE THE FIRST LINE OF YOUR SUBMISSION! --#</span><br/><br/><span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">random</span><br/><br/><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Person</span>:<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #008000; font-weight: bold">pass</span><br/><br/><span style="color: #408080; font-style: italic">#-- THIS LINE SHOULD BE THE LAST LINE OF YOUR SUBMISSION! ---#</span><br/><br/><span style="color: #408080; font-style: italic">### DO NOT SUBMIT THE FOLLOWING LINES!!! THESE ARE FOR LOCAL TESTING ONLY!</span><br/>p1 <span style="color: #666666">=</span> Person(<span style="color: #BA2121">&quot;Mark&quot;</span>, <span style="color: #BA2121">&quot;m&quot;</span>)<br/>p2 <span style="color: #666666">=</span> Person(<span style="color: #BA2121">&quot;Betty&quot;</span>, <span style="color: #BA2121">&quot;f&quot;</span>)<br/>p3 <span style="color: #666666">=</span> Person(<span style="color: #BA2121">&quot;John&quot;</span>, <span style="color: #BA2121">&quot;m&quot;</span>)<br/>p4 <span style="color: #666666">=</span> Person(<span style="color: #BA2121">&quot;Anna&quot;</span>, <span style="color: #BA2121">&quot;f&quot;</span>)<br/>child <span style="color: #666666">=</span> p1<span style="color: #666666">.</span>mate_with(p2)<br/><span style="color: #008000; font-weight: bold">assert</span>(child<span style="color: #666666">.</span>name <span style="color: #666666">==</span> <span style="color: #008000; font-weight: bold">None</span>)<br/>child<span style="color: #666666">.</span>name <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;Andrea&quot;</span><br/><span style="color: #008000; font-weight: bold">assert</span>(<span style="color: #008000">len</span>(p1<span style="color: #666666">.</span>offspring) <span style="color: #666666">==</span> <span style="color: #666666">1</span>)<br/>child <span style="color: #666666">=</span> p3<span style="color: #666666">.</span>mate_with(p2)<br/><span style="color: #008000; font-weight: bold">assert</span>(<span style="color: #008000">len</span>(p2<span style="color: #666666">.</span>offspring) <span style="color: #666666">==</span> <span style="color: #666666">2</span>)<br/>child<span style="color: #666666">.</span>name <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;Terry&quot;</span><br/><span style="color: #008000; font-weight: bold">assert</span>(p1<span style="color: #666666">.</span><span style="color: #0000FF">__str__</span>() <span style="color: #666666">==</span> <span style="color: #BA2121">&quot;Mark (m) has 1 child: Andrea&quot;</span>)<br/><span style="color: #008000; font-weight: bold">assert</span>(p2<span style="color: #666666">.</span><span style="color: #0000FF">__str__</span>() <span style="color: #666666">==</span> <span style="color: #BA2121">&quot;Betty (f) has 2 children: Andrea, Terry&quot;</span>)<br/><span style="color: #008000; font-weight: bold">assert</span>(p3<span style="color: #666666">.</span><span style="color: #0000FF">__repr__</span>() <span style="color: #666666">==</span> <span style="color: #BA2121">&quot;John (m) has 1 child: Terry&quot;</span>)<br/><span style="color: #008000; font-weight: bold">assert</span>(p4<span style="color: #666666">.</span><span style="color: #0000FF">__repr__</span>() <span style="color: #666666">==</span> <span style="color: #BA2121">&quot;Anna (f) has no children&quot;</span>)<br/><span style="color: #008000; font-weight: bold">try</span>:<br/>&nbsp;&nbsp;&nbsp;&nbsp;p1<span style="color: #666666">.</span>mate_with(p3)<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #008000; font-weight: bold">assert</span>(<span style="color: #008000; font-weight: bold">False</span>) <span style="color: #408080; font-style: italic"># expected a ValueError!</span><br/><span style="color: #008000; font-weight: bold">except</span> <span style="color: #D2413A; font-weight: bold">ValueError</span>:<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #008000; font-weight: bold">pass</span> <span style="color: #408080; font-style: italic"># the correct exception has been thrown</span><br/></pre></div>
+
+
+<br/>
+
+<p>Fügen Sie ihre Lösung in folgendes Textfeld ein / Paste your solution into the following text field</p>
+<h1>Classes (1 out of 1)</h1>
+
+<hr style="height: 5px; background-color: #000;"/>
+<p>Points: 35</p>
+
+<em>English version below the code template.</em>
+
+
+
+<h5>DEUTSCH</h5>
+<p>Sie wurden beauftragt, das Kassensystem für einen Getränkemarkt zu entwickeln. Die Aufgabenstellung hat drei Teile:</p>
+
+<ul>
+ <li>Eine Spezifikation der relevanten Konzepte und Prozesse.</li>
+ <li>Komplementäre Implementationshinweise.</li>
+ <li>Ein Code-Template mit vordefinierten Klassen, die implementiert werden müssen.</li>
+</ul>
+
+<p>Bitte lesen Sie alle drei Teile sorgfältig für ein umfassendes Verständnis der Spezifikation. Wenn Sie ein klares Bild davon haben, was zu tun ist, implementieren Sie die nötigen Klassen und Tests.</p>
+
+<p><span style="color: #ff0000;">Schauen Sie auf die Uhr oder stellen Sie einen Wecker! Rechnen Sie unbedingt genug Zeit ein, um Ihre Lösung in das Antwortfeld zu kopieren und einzureichen, bevor die Prüfung endet!</span> Sie können die Aufgabe auch abgeben, wenn Sie nicht vollständig gelöst ist. Stellen Sie aber unbedingt sicher, dass ihre Abgabe keine Syntax- oder anderen grundlegenden Fehler enthält.</p>
+
+<h3>Spezifikation</h3>
+
+<p>Der Getränkemarkt verkauft die folgenden Produkte: Flaschen und Kasten. Flaschen sind Produkte die als Attribute einen fixen Preis und "name" haben. Kasten sind Produkte die mehrere Flaschen beinhalten. Ein Kasten enthält anfangs keine Flaschen, also muss es möglich sein, dem Kasten einzelne Flaschen hinzuzufügen, bis zu einem Maximum von 20 Flaschen. Es soll ausserdem möglich sein, für ein Kasten zu erfahren wieviele Flaschen enthalten sind.</p>
+
+<p>Sowohl Flaschen als auch Kasten sind Produkte. Für jedes Produkt soll es möglich sein, den Preis zu erfahren.</p>
+
+<p>Der Preis für ein Normal-Kasten entspricht der Summe der Preise der enthaltenen Flaschen. Allerdings verkauft der Getränkemarkt zwei spezielle Arten von Kasten:</p>
+
+<ul>
+ <li>Ein Fixpreis-Kasten hat einen vor-definierten Preis, der bei der Erstellung gesetzt wird. Der Preis bleibt unabhängig von der Anzahl im Kasten enthaltener Flaschen.</li>
+
+ <li>Ein Discount-Kasten hat einen Preis, der mittels der folgenden Strategie bestimmt wird: für jede Flasche wird der Preis für ein Kasten um 2% reduziert (bis zu einem Maximum von 25%, Endpreis gerundet auf zwei Nachkommastellen). Zum Beispiel kostet ein Discount-Kasten bestehend aus drei Flaschen with einem summierten Preis von 10.00 nur 9.40, und ein Discount-Kasten bestehend aus fünf Flaschen mit einem summierten Preis von 20.00 nur 18.00.</li>
+</ul>
+
+<h3>Implementationshinweise:</h3>
+<p>Vervollständigen Sie die fehlenden Klassenimplementationen in der vorgegebenen Vorlage. Fügen Sie keine top-level-Definitionen hinzu! Beachten Sie folgendes:</p>
+<ul>
+ <li>Spezifizieren Sie wo nötig Superklassen</li>
+ <li>Fügen Sie wo nötig Konstruktoren und Instanzattribute hinzu.</li>
+ <li>Datenattribute von <span style="font-family: terminal, monaco, monospace;">Bottle</span> sollten public sein, aber allfällige Datenattribute, welche Sie in <span style="font-family: terminal, monaco, monospace;">Crate</span> verwenden, sollen private sein.</li>
+ <li>Fügen Sie die nötigen Methoden hinzu.</li>
+ <li>Lesen Sie die vorgebenen Assertions für weitere Hinweise darauf, wie die nötigen Objekte sich verhalten sollen (insbesondere die Konstruktorparameter und Methoden).</li>
+ <li>Wo eine Klasse von einer anderen erbt, soll gemeinsame Funktionalität in der Basisklasse platziert werden, anstatt sie doppelt zu schreiben.</li>
+</ul>
+<P>Implementieren Sie des weiteren drei Tests, welche die nötigsten Features testen:</p>
+<ol>
+<li><span style="font-family: terminal, monaco, monospace;">test_crate_max_size</span> soll feststellen, dass <span style="font-family: terminal, monaco, monospace;">add</span> einen <span style="font-family: terminal, monaco, monospace;">RuntimeError</span> verursacht, falls die Kasten-Kapazität überschritten würde.</li>
+<li><span style="font-family: terminal, monaco, monospace;">test_crate_price</span> soll feststellen, dass der Preis für einen normalen Kasten korrekt berechnet wird.</li>
+<li><span style="font-family: terminal, monaco, monospace;">test_discount_crate_price</span> soll feststellen, dass der Preis für einen Discount-Kasten korrekt berechnet wird.</li>
+</ol>
+
+
+<h3>Template</h3>
+<ul>
+ <li>Fügen Sie keine zusätzlichen Klassen hinzu! Der top-level Scope Ihrer Abgabe darf NUR Klassendefinitionen und Importstatements enthalten, sonst nichts!</li>
+ <li>Ändern Sie nicht die vorgegebenen Klassen- und Methodennamen!</li>
+ <li>Ihre Lösung muss mit den vorgegebenen Assertions kompatibel sein; achten Sie also darauf, wie Sie ihre Methoden benennen!</li>
+</ul>
+
+
+
+
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><span style="color: #408080; font-style: italic">#-- THIS LINE SHOULD BE THE FIRST LINE OF YOUR SUBMISSION! --#</span><br/><br/><span style="color: #008000; font-weight: bold">from</span> <span style="color: #0000FF; font-weight: bold">abc</span> <span style="color: #008000; font-weight: bold">import</span> ABC, abstractmethod<br/><span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">unittest</span><br/><br/><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Product</span>:<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #008000; font-weight: bold">pass</span><br/><br/><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Bottle</span>:<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #008000; font-weight: bold">pass</span><br/><br/><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Crate</span>:<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #008000; font-weight: bold">pass</span><br/><br/><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">DiscountCrate</span>:<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #008000; font-weight: bold">pass</span><br/><br/><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">FixedPriceCrate</span>:<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #008000; font-weight: bold">pass</span><br/><br/><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">ShopTestSuite</span>(unittest<span style="color: #666666">.</span>TestCase):<br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">test_crate_add</span>(<span style="color: #008000">self</span>):<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;c <span style="color: #666666">=</span> Crate()<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;c<span style="color: #666666">.</span>add(Bottle(<span style="color: #666666">4.50</span>, <span style="color: #BA2121">&quot;Light Beer&quot;</span>))<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #008000">self</span><span style="color: #666666">.</span>assertEqual(c<span style="color: #666666">.</span>get_size(), <span style="color: #666666">1</span>)<br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">test_crate_max_size</span>(<span style="color: #008000">self</span>):<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #008000; font-weight: bold">pass</span><br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">test_crate_price</span>(<span style="color: #008000">self</span>):<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #008000; font-weight: bold">pass</span><br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">test_discount_crate_price</span>(<span style="color: #008000">self</span>):<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #008000; font-weight: bold">pass</span><br/><br/><span style="color: #408080; font-style: italic">#-- THIS LINE SHOULD BE THE LAST LINE OF YOUR SUBMISSION! ---#</span><br/><br/><span style="color: #408080; font-style: italic">### DO NOT SUBMIT THE FOLLOWING LINES!!! THESE ARE FOR LOCAL TESTING ONLY!</span><br/>bottles <span style="color: #666666">=</span> [Bottle(<span style="color: #666666">3.50</span>, <span style="color: #BA2121">&quot;Light Beer&quot;</span>), Bottle(<span style="color: #666666">4.50</span>, <span style="color: #BA2121">&quot;Passable Wine&quot;</span>)] <span style="color: #666666">+</span> <span style="color: #666666">3</span> <span style="color: #666666">*</span> [Bottle(<span style="color: #666666">4.00</span>, <span style="color: #BA2121">&quot;Strong Stuff&quot;</span>)]<br/><span style="color: #008000; font-weight: bold">assert</span>(bottles[<span style="color: #666666">0</span>]<span style="color: #666666">.</span>get_price() <span style="color: #666666">==</span> <span style="color: #666666">3.50</span>)<br/><br/>c <span style="color: #666666">=</span> Crate()<br/><span style="color: #008000; font-weight: bold">for</span> b <span style="color: #AA22FF; font-weight: bold">in</span> bottles: c<span style="color: #666666">.</span>add(b)<br/><span style="color: #008000; font-weight: bold">assert</span>(c<span style="color: #666666">.</span>get_size() <span style="color: #666666">==</span> <span style="color: #666666">5</span>)<br/><span style="color: #008000; font-weight: bold">assert</span>(c<span style="color: #666666">.</span>get_price() <span style="color: #666666">==</span> <span style="color: #666666">20.00</span>)<br/><br/>c <span style="color: #666666">=</span> FixedPriceCrate(<span style="color: #666666">11.11</span>)<br/><span style="color: #008000; font-weight: bold">for</span> b <span style="color: #AA22FF; font-weight: bold">in</span> bottles: c<span style="color: #666666">.</span>add(b)<br/><span style="color: #008000; font-weight: bold">assert</span>(c<span style="color: #666666">.</span>get_price() <span style="color: #666666">==</span> <span style="color: #666666">11.11</span>)<br/><br/>c <span style="color: #666666">=</span> DiscountCrate()<br/><span style="color: #008000; font-weight: bold">for</span> b <span style="color: #AA22FF; font-weight: bold">in</span> bottles: c<span style="color: #666666">.</span>add(b)<br/><span style="color: #008000; font-weight: bold">assert</span>(c<span style="color: #666666">.</span>get_price() <span style="color: #666666">==</span> <span style="color: #666666">18.00</span>)<br/><br/>unittest<span style="color: #666666">.</span>main()<br/></pre></div>
+
+
+<h5>ENGLISH</h5>
+<p>You've been tasked with programming an accounting system for a liquor store. This task description consists of three parts:</p>
+
+<ul>
+ <li>A specification of the relevant concepts and processes.</li>
+ <li>Complementary implementation instructions.</li>
+ <li>A code template (above) containing pre-defined classes which have to be implemented.</li>
+</ul>
+
+<p>Please read all three parts carefully for a comprehensive specification. Once you have a clear picture of what to do, implement the necessary classes and tests. Finally, submit your solution.</p>
+
+<p><span style="color: #ff0000;">Watch the clock or set an alarm! You must ensure that you have enough time to copy and submit your solution, before the exam ends!</span> You can hand in your solution even if it is incomplete. Just make sure that your submission does not contain syntax- or other basic errors.</p>
+
+<h3>Conceptual description</h3>
+
+<p>The liquor store sells the following products: bottles and crates. Bottles are products with a fixed price and name. Crates are products which consist of multiple bottles. A new crate starts out without any bottles, so it should be possible to add individual bottles to the crate, up to a maximum of 20 bottles. It should also be possible to determine for a crate how many bottles it contains.</p>
+
+<p>Both bottles and crates are products. For any product, it should be possible to get its price.</p>
+
+<p>The price of a normal crate is calculated from the total price of all the bottles it contains. However, the liquor store also sells two special kinds of crates:</p>
+
+<ul>
+ <li>A fixed-price crate has a pre-determined price which is set when first creating it. The price remains independent from the number of bottles in the crate.</li>
+
+ <li>A discount crate has a price which is determined using the following strategy: for every additional bottle, get 2% off the crate (up to a maximum of 25% off, final price rounded to two decimal places). For example, a discount crate consisting of three bottles with a total price of 10.00 costs only 9.40, and a discount crate consisting of five bottles with a total price of 20.00 costs only 18.00.</li>
+</ul>
+
+<h3>Implementation instructions:</h3>
+
+<p>Fill in the missing class implementations in the provided template. Do not add any other top-level definitions! Observing the following:</p>
+
+<ul>
+ <li>Specify super classes where necessary.</li>
+ <li>Add constructors and instance attributes where necessary.</li>
+ <li>Data attributes of <span style="font-family: terminal, monaco, monospace;">Bottle</span> should be public, but any data attribute you might use inside <span style="font-family: terminal, monaco, monospace;">Crate</span> should be private.</li>
+ <li>Add the necessary methods.</li>
+ <li>Read the provided assertions for further hints on how the required objects should behave (specifically, their constructor parameters and methods).</li>
+ <li>Where one class inherits from another, ensure to put common functionality into the base class instead of duplicating it in sub classes.</li>
+</ul>
+
+<p>Furthermore, implement three tests which cover the most important features:</p>
+
+<ol>
+<li><span style="font-family: terminal, monaco, monospace;">test_crate_max_size</span> should assert that <span style="font-family: terminal, monaco, monospace;">add</span> raises a <span style="font-family: terminal, monaco, monospace;">RuntimeError</span> if the crate capacity would be exceeded.</li>
+<li><span style="font-family: terminal, monaco, monospace;">test_crate_price</span> should assert that the price of a normal crate is calculated correctly.</li>
+<li><span style="font-family: terminal, monaco, monospace;">test_discount_crate_price</span> should assert that the price for discount crates is calculated correctly.</li>
+</ol>
+
+
+<h3>Template</h3>
+<ul>
+ <li>Do not add additional classes! The top-level scope of your submission may ONLY contain class definitions and import statements, nothing else!</li>
+ <li>Do not change the pre-defined class and function names!</li>
+ <li>Your solution must be compatible with the pre-defined assertions; so take care when naming your methods!</li>
+</ul>
+
+
+
+
+
+
+
+<p>Fügen Sie ihre Lösung in folgendes Textfeld ein / Paste your solution into the following text field</p>
+
+
+<h1>Kprim (2 out of 6)</h1>
+<span class="o_qti_item_mattext"><strong>DE:</strong> Welche der folgenden Aussagen sind korrekt?<br /><strong>EN:</strong> Which of the following Statements are correct?</span>
+<ul>
+<li class="answer"><div class="correct">?</div><div><span class="o_qti_item_mattext"><strong>DE:</strong> The Rückgabewerte der <span style="font-family: terminal, monaco, monospace;">print</span>-Funktion ist immer <span style="font-family: terminal, monaco, monospace;">None</span>.<br /><strong>EN:</strong> The return value of the <span style="font-family: terminal, monaco, monospace;">print</span> function is always <span style="font-family: terminal, monaco, monospace;">None</span>.<br /></span></div></li>
+<li class="answer"><div class="correct">?</div><div><span class="o_qti_item_mattext"><strong>DE:</strong> In white-box testing wissen wir nichts über die interne Funktionsweise des getesteten Subjekts.<br /><strong>EN:</strong> In white-box testing, we do not know anything about the internal functioning of the subject we test.<br /></span></div></li>
+<li class="answer"><div class="correct">?</div><div><span class="o_qti_item_mattext"><strong>DE:</strong> Listen kann man als Dictionary keys verwenden.<br /><strong>EN:</strong> Lists can be used as dictionary keys.<br /></span></div></li>
+<li class="answer"><div class="correct">?</div><div><span class="o_qti_item_mattext"><strong>DE:</strong> Die folgende Expression wird als <span style="font-family: terminal, monaco, monospace;">True</span> evaluiert:<br /><strong>EN:</strong> The following expression evaluates as <span style="font-family: terminal, monaco, monospace;">True</span>:<br /><span style="font-family: terminal, monaco, monospace;">sorted([("a", 2),("b", 1)], key=lambda x: x[1])[0][0] == 'b'</span></span></div></li>
+</ul>
+<span class="o_qti_item_mattext"><strong>DE:</strong> Welche der folgenden Aussagen bezüglich Vererbung in Python sind korrekt?<br /><strong>EN:</strong> Which of the following Statements about Inheritance in Python are correct?</span>
+<ul>
+<li class="answer"><div class="correct">?</div><div><span class="o_qti_item_mattext"><strong>DE:</strong> Eine Klasse kann von mehreren anderen Klassen erben.<br /><strong>EN:</strong> A Class can inherit from multiple other classes.<br /></span></div></li>
+<li class="answer"><div class="correct">?</div><div><span class="o_qti_item_mattext"><strong>DE:</strong> Wenn wir sagen "Car ist ein Vehicle", meinen wir damit dass <span style="font-family: terminal, monaco, monospace;">Car</span> eine Subklassen von <span style="font-family: terminal, monaco, monospace;">Vehicle</span> ist.<br /><strong>EN:</strong> If we say "Car is a Vehicle", we imply that <span style="font-family: terminal, monaco, monospace;">Car</span> is a sub class of <span style="font-family: terminal, monaco, monospace;">Vehicle</span>.<br /></span></div></li>
+<li class="answer"><div class="correct">?</div><div><span class="o_qti_item_mattext"><strong>DE:</strong> Subklassen können Methoden, die bereits in einer Superklasse definiert sind, <em>nicht</em> überschreiben.<br /><strong>EN:</strong> Sub classes <em>cannot</em> override methods already defined in super classes.<br /></span></div></li>
+<li class="answer"><div class="correct">?</div><div><span class="o_qti_item_mattext"><strong>DE:</strong> Wenn <span style="font-family: terminal, monaco, monospace;">Car</span> von <span style="font-family: terminal, monaco, monospace;">Vehicle</span> erbt sollte eine Funktion, welche ein <span style="font-family: terminal, monaco, monospace;">Vehicle</span> als Parameter annimmt, auch dann korrekt funktionieren, wenn wir ihr ein <span style="font-family: terminal, monaco, monospace;">Car</span> übergeben.<br /><strong>EN:</strong> If <span style="font-family: terminal, monaco, monospace;">Car</span> inherits from <span style="font-family: terminal, monaco, monospace;">Vehicle,</span>a function accepting a <span style="font-family: terminal, monaco, monospace;">Vehicle</span> as a parameter should also work correctly when we pass a <span style="font-family: terminal, monaco, monospace;">Car</span>.<br /></span></div></li>
+</ul>
+<span class="o_qti_item_mattext"><strong>DE:</strong> Welche der folgenden Aussagen bezüglich Klassen in Python sind korrekt?<br /><strong>EN:</strong> Which of the following Statements about classes in Python are correct?</span>
+<ul>
+<li class="answer"><div class="correct">?</div><div><span class="o_qti_item_mattext"><strong>DE:</strong> Funktionen die in einer Klasse definiert werden nennt man Methoden.<br /><strong>EN:</strong> Funktions defined in a class are called methods.<br /></span></div></li>
+<li class="answer"><div class="correct">?</div><div><span class="o_qti_item_mattext"><strong>DE:</strong> Eine Klasse, welche Methoden definiert, die mit <span style="font-family: terminal, monaco, monospace;">@abstractmethod</span> dekoriert sind, kann nicht instanziert werden.<br /><strong>EN:</strong> A class defining methods which are decorated with <span style="font-family: terminal, monaco, monospace;">@abstractmethod</span>, cannot be instantiated.<br /></span></div></li>
+<li class="answer"><div class="correct">?</div><div><span class="o_qti_item_mattext"><strong>DE:</strong> Eine Klasse ist wie ein Bauplan, während Objekte konkrete Instanzen dieser Klasse sind.<br /><strong>EN:</strong> A class is like a blueprint, while objects are concrete instances of the given class.<br /></span></div></li>
+<li class="answer"><div class="correct">?</div><div><span class="o_qti_item_mattext"><strong>DE:</strong> Jegliche Methode erhält implizit <span style="font-family: terminal, monaco, monospace;">self</span> als ersten Parameter, auch wenn sie mit <span style="font-family: terminal, monaco, monospace;">@staticmethod</span> dekoriert ist.<br /><strong>EN:</strong> Any method implicitely receives <span style="font-family: terminal, monaco, monospace;">self</span> as the first parameter, even if it is decorated with <span style="font-family: terminal, monaco, monospace;">@staticmethod</span> <br /></span></div></li>
+</ul>
+<span class="o_qti_item_mattext"><strong>DE:</strong> Welche der folgenden Aussagen bezüglich Exceptions und Error Handling sind korrekt?<br /><strong>EN:</strong> Which of the following Statements about Exceptions and Error Handling are correct?</span>
+<ul>
+<li class="answer"><div class="correct">?</div><div><span class="o_qti_item_mattext"><strong>DE:</strong> Eine aufgerufene Funktion kann <em>gleichzeitig</em> einen Wert mittels <span style="font-family: terminal, monaco, monospace;">return</span> und eine Exception mittels <span style="font-family: terminal, monaco, monospace;">raise</span> zurückgeben.<br /><strong>EN:</strong> A called function can <em>simultaneously</em> return a value using <span style="font-family: terminal, monaco, monospace;">return</span> and an exception using <span style="font-family: terminal, monaco, monospace;">raise</span>.<br /></span></div></li>
+<li class="answer"><div class="correct">?</div><div><span class="o_qti_item_mattext"><strong>DE: </strong>Code im <span style="font-family: terminal, monaco, monospace;">finally</span> Block wird auch dann ausgeführt, wenn der dazugehörige Code im <span style="font-family: terminal, monaco, monospace;">try</span> Block keine Exceptions verursacht.<br /><strong>EN:</strong> Code contained in a <span style="font-family: terminal, monaco, monospace;">finally</span> block is executed even if Code contained in the corresponding <span style="font-family: terminal, monaco, monospace;">try</span> block has not caused any exceptions.<br /></span></div></li>
+<li class="answer"><div class="correct">?</div><div><span class="o_qti_item_mattext"><strong>DE:</strong> Eine syntaktisch korrekte Anwendung von try/except/else/finally benötigt mindestens <span style="font-family: terminal, monaco, monospace;">try</span> und <span style="font-family: terminal, monaco, monospace;">except</span> oder <span style="font-family: terminal, monaco, monospace;">try</span> und <span style="font-family: terminal, monaco, monospace;">finally</span>.<br /><strong>EN:</strong> Syntactically correct use of try/except/else/finally needs at least <span style="font-family: terminal, monaco, monospace;">try</span> and <span style="font-family: terminal, monaco, monospace;">except</span> or <span style="font-family: terminal, monaco, monospace;">try</span> and <span style="font-family: terminal, monaco, monospace;">finally</span>.<br /></span></div></li>
+<li class="answer"><div class="correct">?</div><div><span class="o_qti_item_mattext"><strong>DE:</strong> Es ist möglich, verschiedene Exceptions verschieden zu handhaben, indem man mehrere <span style="font-family: terminal, monaco, monospace;">except</span> blocks für die verschiedenen Exception Types implementiert.<br /><strong>EN:</strong> It's possible to handle different exceptions differently by implementing multiple <span style="font-family: terminal, monaco, monospace;">except</span> blocks for the different exception types.<br /></span></div></li>
+</ul>
+<span class="o_qti_item_mattext"><strong>DE:</strong> Welche der folgenden Aussagen bezüglich dem Call Stack sind korrekt?<br /><strong>EN:</strong> Which of the following Statements about the Call Stack are correct?</span>
+<ul>
+<li class="answer"><div class="correct">?</div><div><span class="o_qti_item_mattext"><strong>DE:</strong> Call Frames enthalten informationen über lokale Variabeln.<br /><strong>EN:</strong> Call frames contain information about local variables.<br /></span></div></li>
+<li class="answer"><div class="correct">?</div><div><span class="o_qti_item_mattext"><strong>DE:</strong> Call Frames werden auf dem Call Stack gespeichert.<br /><strong>EN:</strong> Call Frames are stored on the Call Stack.<br /></span></div></li>
+<li class="answer"><div class="correct">?</div><div><span class="o_qti_item_mattext"><strong>DE:</strong> Für jeden Funktionsaufruf wird ein neuer Call Frame erstellt.<br /><strong>EN:</strong> For every function call, a new call frame is created.<br /></span></div></li>
+<li class="answer"><div class="correct">?</div><div><span class="o_qti_item_mattext"><strong>DE:</strong> Call Frames bleiben auf dem Stack bis das Programm terminiert.<br /><strong>EN:</strong> Call Frames stay on the Stack until the program terminates.<br /></span></div></li>
+</ul>
+<span class="o_qti_item_mattext"><strong>DE:</strong> Bestimmen Sie, welche der folgenden Aussagen korrekt sind, indem Sie die Dokumentation von <a href="https://docs.python.org/3/library/unittest.html" target="_blank"><span style="font-family: terminal, monaco, monospace;">unittest</span></a> nachschlagen:<br /><strong>EN:</strong> <span class="o_qti_item_mattext">Determine which of the following</span> Statements are correct, by consulting the <a href="https://docs.python.org/3/library/unittest.html" target="_blank"><span style="font-family: terminal, monaco, monospace;">unittest</span></a> Python documentation.<br /><a href="https://docs.python.org/3/library/unittest.html" target="_blank">https://docs.python.org/3/library/unittest.html</a><br /></span>
+<ul>
+<li class="answer"><div class="correct">?</div><div><span class="o_qti_item_mattext"><strong>DE:</strong> Die Standard-Implementation von <span style="font-family: terminal, monaco, monospace;">setUp()</span> tut nichts.<br /><strong>EN:</strong> The default implementation of <span style="font-family: terminal, monaco, monospace;">setUp()</span> does nothing.<br /></span></div></li>
+<li class="answer"><div class="correct">?</div><div><span class="o_qti_item_mattext"><strong>DE:</strong> Wenn man zwei Dictionaries mit <span style="font-family: terminal, monaco, monospace;">assertEqual</span> vergleicht, so wird standardmässig <span style="font-family: terminal, monaco, monospace;">assertDictEqual</span> verwendet, um sie zu vergleichen.<br /><strong>EN:</strong> When using <span style="font-family: terminal, monaco, monospace;">assertEqual</span> to compare two dictionaries, <span style="font-family: terminal, monaco, monospace;">assertDictEqual</span> will be used to compare them by default.<br /></span></div></li>
+<li class="answer"><div class="correct">?</div><div><span class="o_qti_item_mattext"><strong>DE:</strong> Wenn man das <span style="font-family: terminal, monaco, monospace;">maxdiff</span> Attribut auf <span style="font-family: terminal, monaco, monospace;">None</span> setzt, heisst das, dass die maximale Länge von diffs <span style="font-family: terminal, monaco, monospace;">0</span> (null) sein soll.<br /><strong>EN:</strong> Setting the <span style="font-family: terminal, monaco, monospace;">maxdiff</span> attribute to <span style="font-family: terminal, monaco, monospace;">None</span> means that the maximum length of diffs should be <span style="font-family: terminal, monaco, monospace;">0</span> (zero).<br /></span></div></li>
+<li class="answer"><div class="correct">?</div><div><span class="o_qti_item_mattext"><strong>DE:</strong> Das Python unittest Modul ist von JUnit inspiriert.<br /><strong>EN:</strong> The Python unittest module is inspired by JUnit.<br /></span></div></li>
+</ul>
+</body>
+</html>
