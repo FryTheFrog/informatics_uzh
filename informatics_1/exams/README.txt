@@ -1,1 +1,0 @@
-open HTML files with a browser
