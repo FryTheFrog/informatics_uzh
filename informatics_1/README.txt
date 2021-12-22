@@ -2,4 +2,5 @@
 
 -'exercises' contains the original exercises and sample solutions
 -'my_solutions' contains my own solutions for the exercises
+-'exams' contain some final exams from previous years
 -'snippets.py' is a collection of a few useful code pieces
