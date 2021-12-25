@@ -13,7 +13,7 @@ void fizzBuzz(int num) {        // the type of the argument also has to be decla
 }
 
 // calls the function in a for loop
-// the "main" function should NOT be a "void" function, instead just return 0
+// the "main" function should NOT be a "void" function, instead just return 0 (convention)
 int main() {                    // type of the functions return value is set to integer
     int i;                      // declare var used in the loop
     for (i = 1; i <= 20; ++i){  // (start; stop; incrementation)
