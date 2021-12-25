@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 int main() {
-    int array[5];                   // declar type of elems and size of array
+    int array[5];                   // declare type of elems and size of array
     int i;
     for (i = 0; i < 5; i++) {
         array[i] = i;               // assign values in the array
