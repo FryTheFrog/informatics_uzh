@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 int main() {
-    int num = 22;
+    int num = 23;
     if (num == 1) {
         return 0;
     }

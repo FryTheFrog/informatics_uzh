@@ -16,7 +16,7 @@ void fizzBuzz(int num) {        // the type of the argument also has to be decla
 // the "main" function should NOT be a "void" function, instead just return 0
 int main() {                    // type of the functions return value is set to integer
     int i;                      // declare var used in the loop
-    for (i = 1; i <= 20; ++i){  // (start; stop; incremention)
+    for (i = 1; i <= 20; ++i){  // (start; stop; incrementation)
         fizzBuzz(i);            // -> (python) for i in range(20 + 1): ...
     }
     return 0;
