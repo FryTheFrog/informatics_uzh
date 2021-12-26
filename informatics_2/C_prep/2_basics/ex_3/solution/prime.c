@@ -6,7 +6,7 @@ int main() {
         return 0;
     }
     int i;
-    for (i = 2; i <= num / 2; i++) {
+    for (i = 2; i <= num / 2; ++i) {
         if (num % i == 0) {
             return 0;
         }
