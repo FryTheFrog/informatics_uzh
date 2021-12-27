@@ -1,6 +1,6 @@
 #include <stdio.h>
+
 // Task: print a number pyramid
-// - use a while loop
 // - should look something like that (rows = 5):
 //         1 
 //       2 3 2 
