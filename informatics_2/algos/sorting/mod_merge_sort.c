@@ -5,6 +5,8 @@
 // (2) check if array is already sorted
 // (3) if partial array size <= 6, use insertion sort algo
 
+// trash code, but seems to be working (?)
+
 void merge(int arr[], int p, int q, int r) {
 
     int n1 = q - p + 1;
@@ -46,15 +48,11 @@ void merge(int arr[], int p, int q, int r) {
     }
 }
 
-void mergeSort(int arr[], int l, int r) {
-    if (l < r) {
-
-        int m = l + (r - l) / 2;
-
-        mergeSort(arr, l, m);
-        mergeSort(arr, m + 1, r);
-
-        merge(arr, l, m, r);
+void reverseArray(int arr[], int size) {
+    for (int i = 0; i < size/2; i++) {
+        int temp = arr[i];
+        arr[i] = arr[size - 1 -i];
+        arr[size - 1 - i] = temp;
     }
 }
 
@@ -65,7 +63,7 @@ void insertionSort(int arr[], int size) {
 
         while (key < arr[j] && j >= 0) {
             arr[j + 1] = arr[j];
-            --j;
+            j--;
         }
         arr[j + 1] = key;
     }
@@ -87,6 +85,46 @@ int isSortedDesc(int arr[], int size) {
     return 1;
 }
 
+int isSorted(int arr[], int size, int asc) {
+    if (isSortedAsc(arr, size)) {
+        if (asc) {
+            return 1;
+        } else {
+            reverseArray(arr, size);
+            return 1;
+        }
+    }
+    if (isSortedDesc(arr, size)) {
+        if (!asc) {
+            return 1;
+        } else {
+            reverseArray(arr, size);
+            return 1;
+        }
+    }
+    return 0;
+}
+
+void mergeSort(int arr[], int l, int r, int asc) {
+    if (isSorted(arr, r + 1, asc)) {
+        return;
+    }
+
+    if (r < 6) {
+        insertionSort(arr, r + 1);
+    }
+
+    if (l < r) {
+
+        int m = l + (r - l) / 2;
+
+        mergeSort(arr, l, m, asc);
+        mergeSort(arr, m + 1, r, asc);
+
+        merge(arr, l, m, r);
+    }
+}
+
 void printArray(int arr[], int size) {
     for (int i = 0; i < size; i++)
         printf("%d ", arr[i]);
@@ -98,9 +136,13 @@ int main() {
     int size = sizeof(arr) / sizeof(arr[0]);
 
     // asc = True -> Ascending order
-    int asc = 1;
+    // asc = False -> Descending order
+    int asc = 0;
 
-    mergeSort(arr, 0, size - 1);
+    mergeSort(arr, 0, size - 1, asc);
+    if (!asc) {
+        reverseArray(arr, size);
+    }
 
     printf("sorted array:\n");
     printArray(arr, size);
