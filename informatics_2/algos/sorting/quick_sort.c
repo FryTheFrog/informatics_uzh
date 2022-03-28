@@ -6,7 +6,7 @@ void swap(int *a, int *b) {
     *b = t;
 }
 
-// func to find the partition position
+// find the partition position
 int partition(int array[], int low, int high) {
 
     // select the rightmost element as pivot
@@ -52,7 +52,7 @@ void quickSort(int array[], int low, int high) {
     }
 }
 
-// function to print array elements
+// print array elements
 void printArray(int array[], int size) {
     for (int i = 0; i < size; ++i) {
         printf("%d  ", array[i]);
@@ -72,4 +72,6 @@ int main() {
   
     printf("Sorted array in ascending order: \n");
     printArray(data, n);
+
+    return 0;
 }
