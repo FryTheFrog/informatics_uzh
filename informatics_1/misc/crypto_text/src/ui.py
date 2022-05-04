@@ -1,6 +1,5 @@
 import os
 from src.message import EncryptedMessage
-from math import floor, ceil
 
 
 class UI:
@@ -86,6 +85,6 @@ interface = """
 main_menu = """| 'q' to quit | 'e' to encrypt | 'd' to decrypt | 'r' to reset |
 |                      or enter a message                      |"""
 
-encrypt_menu = """| enter a key to ENCRYPT                                       |"""
+encrypt_menu = """| enter a 4-digit key to ENCRYPT                               |"""
 
-decrypt_menu = """| enter a key to DECRYPT                                       |"""
+decrypt_menu = """| enter a 4-digit key to DECRYPT                               |"""

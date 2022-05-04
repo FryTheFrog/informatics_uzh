@@ -23,8 +23,20 @@ class EncryptedMessage(Message):
     def create_message(self, text: str) -> None:
         self.text = text
         self.__state = "ORIGINAL"
+    
+    def verify_key(self, key: int) -> bool:
+        if key < 0 or key > 9999:
+            return False
+        if self.__state == "ENCRYPTED":
+            for i in range(len(self.text)):
+                if ord(self.text[i]) - key < ord(' '):
+                    return False
+        return True
 
     def encrypt(self, key: int) -> None:
+        if not self.verify_key(key) or self.__state == "ENCRYPTED":
+            self.__state = "ENCRYPTION FAILED"
+            return
         encrypted_text = ""
         for i in range(len(self.text)):
             encrypted_text += chr(ord(self.text[i]) + key)
@@ -32,6 +44,9 @@ class EncryptedMessage(Message):
         self.__state = "ENCRYPTED"
 
     def decrypt(self, key: int) -> None:
+        if not self.verify_key(key) or self.__state not in ["ENCRYPTED", "DECRYPTION FAILED"]:
+            self.__state = "DECRYPTION FAILED"
+            return
         decrypted_text = ""
         for i in range(len(self.text)):
             decrypted_text += chr(ord(self.text[i]) - key)
