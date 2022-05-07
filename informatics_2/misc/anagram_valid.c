@@ -9,7 +9,7 @@ struct Node {
     };
 
 void displayList(struct Node *head) {
-    struct Node *current = head;
+    struct Node *current = head->next;
     while (current != NULL) {
         if (current->next != NULL) {
             printf(" %c ->", current->data);
@@ -22,56 +22,39 @@ void displayList(struct Node *head) {
 }
 
 struct Node *insertList(struct Node *head, char data) {
-    if (head == NULL) {
-        head = malloc(sizeof(struct Node));
-        head->data = data;
-        head->next = NULL;
-        return head;
-    } else {
-        struct Node *newNode = malloc(sizeof(struct Node));
-        struct Node *current = head;
-        newNode->data = data;
-        newNode->next = NULL;
-        while (current->next != NULL) {
-            current = current->next;
-        }
-        current->next = newNode;
-        return head;
+    struct Node *current = head;
+    struct Node *newNode = malloc(sizeof(struct Node));
+    newNode->data = data;
+    newNode->next = NULL;
+    while (current->next != NULL) {
+        current = current->next;
     }
+    current->next = newNode;
+    return head;
 }
 
 void swapNodes(struct Node *prev, struct Node *cur) {
-    // before swap: prev->cur->ne->temp
-    // after swap: prev->ne->cur->temp
+    // before swap: prev−>cur−>ne−>temp
+    // after swap: prev−>ne−>cur−>temp
     struct Node * ne = cur->next;
-    struct Node * temp = ne->next;
-    prev->next = ne;
+    struct Node * temp = ne->next; prev->next = ne;
     ne->next = cur;
     cur->next = temp;
     return;
 }
 
-struct Node * bubbleSort(struct Node *head) {
-    struct Node *dummy = malloc(sizeof(struct Node));
-    dummy->next = head;
-    struct Node *prev = dummy;
-    struct Node *cur = head;
+struct Node *bubbleSort(struct Node *head) {
+    struct Node *prev = head;
+    struct Node *cur = head->next;
     struct Node *ne = cur->next;
-    struct Node *temp = ne->next;
-    while (cur != NULL) {
-        while (ne != NULL) {
-            if (cur->data > ne->data) {
-                swapNodes(prev, cur);
-            }
-            prev = cur;
-            cur = cur->next;
-            ne = ne->next;
+    while (ne != NULL) {
+        if (cur->data > ne->data) {
+            swapNodes(prev, cur, ne);
         }
-        cur = dummy->next;
-        ne = cur->next;
+        struct Node *ne = ne->next;
+        struct Node *cur = cur->next;
+        struct Node *prev = prev->next;
     }
-    head = dummy->next;
-    free(dummy);
     return head;
 }
 
@@ -82,7 +65,8 @@ void isAnagram(struct Node *head1, struct Node *head2) {
     displayList(sorted2);
     if (sorted1 == sorted2) {
         printf("\nThe two linked lists are anagrams.\n");
-    } else {
+    }
+    else {
         printf("\nThe two linked lists are not anagrams.\n");
     }
 }
@@ -100,16 +84,6 @@ int main() {
     while ((ch = getchar()) != '\n') {
         head2 = insertList(head2, ch);
     }
-
-    // for debugging purpose
-/*     head = insertList(head, 'a');
-    head = insertList(head, 'b');
-    head = insertList(head, 'c');
-    head = insertList(head, 'd');
-    head2 = insertList(head2, 'd');
-    head2 = insertList(head2, 'c');
-    head2 = insertList(head2, 'b');
-    head2 = insertList(head2, 'a'); */
 
     displayList(head);
     displayList(head2);
