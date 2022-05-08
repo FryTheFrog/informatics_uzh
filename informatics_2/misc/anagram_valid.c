@@ -48,12 +48,12 @@ void swapNodes(struct Node *prev, struct Node *cur) {
 struct Node *bubbleSort(struct Node *head) {
     if (head == NULL || head->next == NULL) return head;
 
-    struct Node *dummy = malloc(sizeof(struct Node));
-    dummy->next = head;
+    struct Node *temp = malloc(sizeof(struct Node));
+    temp->next = head;
     struct Node *last = NULL;
 
-    while(dummy->next != last) {
-        struct Node *prev = dummy;
+    while(temp->next != last) {
+        struct Node *prev = temp;
         struct Node *cur = prev->next;
         while (cur->next != last) {
             if (cur->data > cur->next->data) {
@@ -66,8 +66,8 @@ struct Node *bubbleSort(struct Node *head) {
         }
         last = cur;
     }
-    head = dummy->next;
-    free(dummy);
+    head = temp->next;
+    free(temp);
     return head;
 }
 
