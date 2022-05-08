@@ -1,6 +1,6 @@
+#include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <stdbool.h>
 
 struct node {
     int value;
@@ -107,7 +107,8 @@ void swap_nodes(node *prev, node *cur) {
 }
 
 node *bubble_sort(node *head) {
-    if (head == NULL || head->next == NULL) return head;
+    if (head == NULL || head->next == NULL)
+        return head;
     node *temp = malloc(sizeof(node));
     temp->next = head;
     node *last = NULL;
@@ -117,8 +118,7 @@ node *bubble_sort(node *head) {
         while (cur->next != last) {
             if (cur->value > cur->next->value) {
                 swap_nodes(prev, cur);
-            }
-            else {
+            } else {
                 cur = cur->next;
             }
             prev = prev->next;
@@ -130,7 +130,7 @@ node *bubble_sort(node *head) {
     return head;
 }
 
-void print_list (node *head) {
+void print_list(node *head) {
     struct node *current = head;
     while (current != NULL) {
         if (current->next != NULL) {
@@ -161,5 +161,6 @@ int main() {
     printf("find '3': %d\n", find(head, 3));
     head = bubble_sort(head);
     print_list(head);
+
     return 0;
 }
