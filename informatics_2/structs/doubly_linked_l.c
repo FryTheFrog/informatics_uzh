@@ -5,6 +5,7 @@
 struct node {
     int value;
     struct node *next;
+    struct node *prev;
 };
 typedef struct node node;
 
@@ -39,6 +40,10 @@ node *insert_at_head(node *head, int value) {
     node *new_node = malloc(sizeof(node));
     new_node->value = value;
     new_node->next = head;
+    new_node->prev = NULL;
+    if (head != NULL) {
+        head->prev = new_node;
+    }
     return new_node;
 }
 
@@ -47,6 +52,7 @@ node *insert_at_end(node *head, int value) {
         head = malloc(sizeof(node));
         head->value = value;
         head->next = NULL;
+        head->prev = NULL;
         return head;
     }
     node *current = head;
@@ -56,6 +62,7 @@ node *insert_at_end(node *head, int value) {
     current->next = malloc(sizeof(node));
     current->next->value = value;
     current->next->next = NULL;
+    current->next->prev = current;
     return head;
 }
 
@@ -70,7 +77,11 @@ node *insert_at_position(node *head, int value, int position) {
     node *new_node = malloc(sizeof(node));
     new_node->value = value;
     new_node->next = current->next;
+    new_node->prev = current;
     current->next = new_node;
+    if (new_node->next != NULL) {
+        new_node->next->prev = new_node;
+    }
     return head;
 }
 
@@ -83,6 +94,9 @@ node *delete_at_position(node *head, int position) {
         current = current->next;
     }
     current->next = current->next->next;
+    if (current->next != NULL) {
+        current->next->prev = current;
+    }
     return head;
 }
 
@@ -93,55 +107,41 @@ node *reverse(node *head) {
     while (current != NULL) {
         next = current->next;
         current->next = previous;
+        current->prev = next;
         previous = current;
         current = next;
     }
     return previous;
 }
 
-// swap by value is a lot simpler -> see doubly_linked_list.c
-void swap_nodes(node *prev, node *cur) {
-    node *temp = cur->next->next;
-    prev->next = cur->next;
-    cur->next->next = cur;
-    cur->next = temp;
+void swap_nodes(node *prev, node *cur) { // swap by value
+    int temp = prev->value;
+    prev->value = cur->value;
+    cur->value = temp;
 }
 
 node *bubble_sort(node *head) {
-    if (head == NULL || head->next == NULL)
-        return head;
-    node *temp = malloc(sizeof(node));
-    temp->next = head;
-    node *last = NULL;
-    while (temp->next != last) {
-        node *prev = temp;
-        node *cur = prev->next;
-        while (cur->next != last) {
-            if (cur->value > cur->next->value) {
-                swap_nodes(prev, cur);
-            } else {
-                cur = cur->next;
+    node *current = head;
+    while (current != NULL) {
+        node *next = current->next;
+        while (next != NULL) {
+            if (current->value > next->value) {
+                swap_nodes(current, next);
             }
-            prev = prev->next;
+            next = next->next;
         }
-        last = cur;
+        current = current->next;
     }
-    head = temp->next;
-    free(temp);
     return head;
 }
 
 void print_list(node *head) {
     node *current = head;
     while (current != NULL) {
-        if (current->next != NULL) {
-            printf(" %d -", current->value);
-        } else {
-            printf(" %d", current->value);
-            printf("\n");
-        }
+        printf("%d ", current->value);
         current = current->next;
     }
+    printf("\n");
 }
 
 int main() {
@@ -158,7 +158,7 @@ int main() {
     insert_at_position(head, 3, 8);
     print_list(head);
     printf("is_empty: %d\n", is_empty(head));
-    printf("length; %d\n", length(head));
+    printf("length: %d\n", length(head));
     printf("find '3': %d\n", find(head, 3));
     head = bubble_sort(head);
     print_list(head);
