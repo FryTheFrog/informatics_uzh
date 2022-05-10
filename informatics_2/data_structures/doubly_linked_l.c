@@ -1,3 +1,8 @@
+/*  
+TODO:
+- implement quick sort
+*/
+
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -23,7 +28,9 @@ int length(node *head) {
     return length;
 }
 
-int find(node *head, int value) {
+// returns the idx of the node with the given value
+// -1 if not found
+int find_idx(node *head, int value) {
     int i = 0;
     node *current = head;
     while (current->value != value) {
@@ -34,6 +41,26 @@ int find(node *head, int value) {
         current = current->next;
     }
     return i;
+}
+
+// return the node with the given value
+node *find_node(node *head, int value) {
+    node *current = head;
+    while (current->value != value) {
+        if (current->next == NULL) {
+            return NULL;
+        }
+        current = current->next;
+    }
+    return current;
+}
+
+node *last_node(node *head) {
+    node *current = head;
+    while (current->next != NULL) {
+        current = current->next;
+    }
+    return current;
 }
 
 node *insert_at_head(node *head, int value) {
@@ -100,6 +127,7 @@ node *delete_at_position(node *head, int position) {
     return head;
 }
 
+// reverse the list
 node *reverse(node *head) {
     node *previous = NULL;
     node *current = head;
@@ -114,7 +142,8 @@ node *reverse(node *head) {
     return previous;
 }
 
-void swap_nodes(node *prev, node *cur) { // swap by value
+// swaps the values of two nodes
+void swap_nodes(node *prev, node *cur) {
     int temp = prev->value;
     prev->value = cur->value;
     cur->value = temp;
@@ -133,6 +162,34 @@ node *bubble_sort(node *head) {
         current = current->next;
     }
     return head;
+}
+
+// helper function for quick_sort
+node *partition(node *first, node *last) {
+    node *pivot = last;
+    node *temp = first -> prev;
+    for (node *i = first; i != last; i = i->next) {
+        if (i->value < pivot->value) {
+            swap_nodes(i, temp);
+            temp = (temp == NULL) ? first : temp->next;
+        }
+    }
+    swap_nodes(temp, last);
+    return temp;
+}
+
+// main function for quick_sort
+node *quick_sort_rec(node *head, node *last) {
+    if (head == last) {
+        return head;
+    }
+    return head;
+}
+
+// calls the recursive quick sort function
+node *quick_sort(node *head) {
+    node *last = last_node(head);
+    return quick_sort_rec(head, last);
 }
 
 void print_list(node *head) {
@@ -159,8 +216,8 @@ int main() {
     print_list(head);
     printf("is_empty: %d\n", is_empty(head));
     printf("length: %d\n", length(head));
-    printf("find '3': %d\n", find(head, 3));
-    head = bubble_sort(head);
+    printf("find '3': %d\n", find_idx(head, 3));
+    head = quick_sort(head);
     print_list(head);
 
     return 0;
