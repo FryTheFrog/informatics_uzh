@@ -143,13 +143,13 @@ node *reverse(node *head) {
 }
 
 // swaps the values of two nodes
-void swap_nodes(node *prev, node *cur) {
-    int temp = prev->value;
-    prev->value = cur->value;
-    cur->value = temp;
+void swap_nodes(node *node_1, node *node_2) {
+    int temp = node_1->value;
+    node_1->value = node_2->value;
+    node_2->value = temp;
 }
 
-node *bubble_sort(node *head) {
+void bubble_sort(node *head) {
     node *current = head;
     while (current != NULL) {
         node *next = current->next;
@@ -161,35 +161,37 @@ node *bubble_sort(node *head) {
         }
         current = current->next;
     }
-    return head;
 }
 
 // helper function for quick_sort
-node *partition(node *first, node *last) {
-    node *pivot = last;
-    node *temp = first -> prev;
-    for (node *i = first; i != last; i = i->next) {
-        if (i->value < pivot->value) {
-            swap_nodes(i, temp);
-            temp = (temp == NULL) ? first : temp->next;
+node *partition(node *low, node *high) {
+    int pivot = high->value;
+    node *current = low->prev;
+    for (node *i = low; i != high; i = i->next) {
+        if (i->value < pivot) {
+            current = current->next;
+            swap_nodes(current, i);
         }
     }
-    swap_nodes(temp, last);
-    return temp;
+    current = current->next;
+    swap_nodes(current, high);
+    return current;
 }
 
 // main function for quick_sort
-node *quick_sort_rec(node *head, node *last) {
-    if (head == last) {
-        return head;
+void quick_sort_rec(node *head, node *last) {
+    if (head == NULL || head == last || head->next == last) {
+        return;
     }
-    return head;
+    node *pivot = partition(head, last);
+    quick_sort_rec(head, pivot->prev);
+    quick_sort_rec(pivot->next, last);
 }
 
 // calls the recursive quick sort function
-node *quick_sort(node *head) {
+void quick_sort(node *head) {
     node *last = last_node(head);
-    return quick_sort_rec(head, last);
+    quick_sort_rec(head, last);
 }
 
 void print_list(node *head) {
@@ -217,7 +219,7 @@ int main() {
     printf("is_empty: %d\n", is_empty(head));
     printf("length: %d\n", length(head));
     printf("find '3': %d\n", find_idx(head, 3));
-    head = quick_sort(head);
+    quick_sort(head); // not working yet
     print_list(head);
 
     return 0;
