@@ -1,8 +1,3 @@
-/*  
-TODO:
-- implement quick sort
-*/
-
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -168,24 +163,24 @@ node *partition(node *low, node *high) {
     int pivot = high->value;
     node *current = low->prev;
     for (node *i = low; i != high; i = i->next) {
-        if (i->value < pivot) {
-            current = current->next;
+        if (i->value <= pivot) {
+            current = (current == NULL) ? low : current->next;
             swap_nodes(current, i);
         }
     }
-    current = current->next;
+    current = (current == NULL) ? low : current->next;
     swap_nodes(current, high);
     return current;
 }
 
 // main function for quick_sort
-void quick_sort_rec(node *head, node *last) {
-    if (head == NULL || head == last || head->next == last) {
+void quick_sort_rec(node *low, node *high) {
+    if (high == NULL || high == low || high->next == low) {
         return;
     }
-    node *pivot = partition(head, last);
-    quick_sort_rec(head, pivot->prev);
-    quick_sort_rec(pivot->next, last);
+    node *pivot = partition(low, high);
+    quick_sort_rec(low, pivot->prev);
+    quick_sort_rec(pivot->next, high);
 }
 
 // calls the recursive quick sort function
@@ -218,8 +213,8 @@ int main() {
     print_list(head);
     printf("is_empty: %d\n", is_empty(head));
     printf("length: %d\n", length(head));
-    printf("find '3': %d\n", find_idx(head, 3));
-    quick_sort(head); // not working yet
+    printf("find idx of '3' = %d\n", find_idx(head, 3));
+    quick_sort(head);
     print_list(head);
 
     return 0;
