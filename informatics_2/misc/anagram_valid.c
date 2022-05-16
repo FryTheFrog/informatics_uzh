@@ -1,34 +1,35 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-struct Node {
-    char data;
-    struct Node *next;
-    };
+struct node {
+    char value;
+    struct node *next;
+};
+typedef struct node node;
 
-void displayList(struct Node *head) {
-    struct Node *current = head;
+void display_list(node *head) {
+    node *current = head;
     while (current != NULL) {
         if (current->next != NULL) {
-            printf(" %c ->", current->data);
+            printf(" %c ->", current->value);
         } else {
-            printf(" %c", current->data);
+            printf(" %c", current->value);
             printf("\n");
         }
         current = current->next;
     }
 }
 
-struct Node *insertAtEnd(struct Node *head, char data) {
+node *insert_at_end(node *head, char data) {
     if (head == NULL) {
-        head = malloc(sizeof(struct Node));
-        head->data = data;
+        head = malloc(sizeof(node));
+        head->value = data;
         head->next = NULL;
         return head;
     }
-    struct Node *current = head;
-    struct Node *newNode = malloc(sizeof(struct Node));
-    newNode->data = data;
+    node *current = head;
+    node *newNode = malloc(sizeof(node));
+    newNode->value = data;
     newNode->next = NULL;
     while (current->next != NULL) {
         current = current->next;
@@ -37,29 +38,29 @@ struct Node *insertAtEnd(struct Node *head, char data) {
     return head;
 }
 
-void swapNodes(struct Node *prev, struct Node *cur) {
-    struct Node *ne = cur->next;
-    struct Node *temp = ne->next;
+void swap_nodes(node *prev, node *cur) {
+    node *ne = cur->next;
+    node *temp = ne->next;
     prev->next = ne;
     ne->next = cur;
     cur->next = temp;
 }
 
-struct Node *bubbleSort(struct Node *head) {
-    if (head == NULL || head->next == NULL) return head;
+node *bubble_sort(node *head) {
+    if (head == NULL || head->next == NULL)
+        return head;
 
-    struct Node *temp = malloc(sizeof(struct Node));
+    node *temp = malloc(sizeof(node));
     temp->next = head;
-    struct Node *last = NULL;
+    node *last = NULL;
 
-    while(temp->next != last) {
-        struct Node *prev = temp;
-        struct Node *cur = prev->next;
+    while (temp->next != last) {
+        node *prev = temp;
+        node *cur = prev->next;
         while (cur->next != last) {
-            if (cur->data > cur->next->data) {
-                swapNodes(prev, cur);
-            }
-            else {
+            if (cur->value > cur->next->value) {
+                swap_nodes(prev, cur);
+            } else {
                 cur = cur->next;
             }
             prev = prev->next;
@@ -71,36 +72,37 @@ struct Node *bubbleSort(struct Node *head) {
     return head;
 }
 
-void isAnagram(struct Node *head1, struct Node *head2) {
-    struct Node *sorted1 = bubbleSort(head1);
-    struct Node *sorted2 = bubbleSort(head2);
-    while (sorted1 != NULL && sorted2 != NULL) {
-        if (sorted1->data != sorted2->data) {
+void is_anagram(node *head1, node *head2) {
+    node *current1 = head1;
+    node *current2 = head2;
+    while (current1 != NULL && current2 != NULL) {
+        if (current1->value != current2->value) {
             printf("Not anagrams\n");
             return;
         }
-        sorted1 = sorted1->next;
-        sorted2 = sorted2->next;
+        current1 = current1->next;
+        current2 = current2->next;
     }
     printf("Anagrams\n");
 }
 
 int main() {
     char ch;
-    struct Node *head = NULL;
-    struct Node *head2 = NULL;
+    node *head = NULL;
+    node *head2 = NULL;
 
     printf("\nEnter the first string: ");
     while ((ch = getchar()) != '\n') {
-        head = insertAtEnd(head, ch);
+        head = insert_at_end(head, ch);
     }
     printf("Enter the second string: ");
     while ((ch = getchar()) != '\n') {
-        head2 = insertAtEnd(head2, ch);
+        head2 = insert_at_end(head2, ch);
     }
-
-    isAnagram(head, head2);
-    displayList(head);
-    displayList(head2);
+    head = bubble_sort(head);
+    head2 = bubble_sort(head2);
+    is_anagram(head, head2);
+    display_list(head);
+    display_list(head2);
     return 0;
 }
