@@ -1,5 +1,5 @@
-from public.currency_converter import convert
-from public.exchange_rates import EXCHANGE_RATES as er
+from currency_converter import convert
+from exchange_rates import EXCHANGE_RATES as er
 
 
 class BankAccount:
