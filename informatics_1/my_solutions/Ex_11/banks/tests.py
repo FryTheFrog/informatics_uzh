@@ -1,6 +1,6 @@
 from unittest import TestCase
-from public.currency_converter import convert
-from public.bank_account import BankAccount
+from currency_converter import convert
+from bank_account import BankAccount
 
 class PrivateFunctionalTestSuite(TestCase):
 

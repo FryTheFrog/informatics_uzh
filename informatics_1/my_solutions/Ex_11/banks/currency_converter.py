@@ -1,4 +1,4 @@
-from public.exchange_rates import EXCHANGE_RATES as er
+from exchange_rates import EXCHANGE_RATES as er
 
 def convert(amount, from_currency, to_currency):
 
