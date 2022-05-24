@@ -1,8 +1,8 @@
 from item import Item
 from order import Order
 
-class Restaurant:
 
+class Restaurant:
     def __init__(self, restaurant_name, menu_list):
         self.__restaurant_name = restaurant_name
         self.__menu_list = menu_list
@@ -16,8 +16,9 @@ class Restaurant:
 
     def get_order_list(self):
         if self.__orders == []:
-            return 'No order yet'
-        else: return self.__orders
+            return "No order yet"
+        else:
+            return self.__orders
 
     def set_order(self, item_list):
         item_list = [i for i in item_list if i in self.__menu_list]
@@ -30,9 +31,10 @@ class Restaurant:
             res += i.get_bill_amount()
         return res
 
+
 # You can play around with your implementation in the body of the following 'if'.
 # The contained statements will be ignored while evaluating your solution.
-if __name__ == '__main__':
+if __name__ == "__main__":
     # Create Item Objects with Name and Price
     steak = Item("Steak", 25)
     salad = Item("Salad", 10)

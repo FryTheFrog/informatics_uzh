@@ -1,6 +1,5 @@
 class ShoppingCenter:
-
-    def __init__(self, capital, shops:list):
+    def __init__(self, capital, shops: list):
         if shops == []:
             raise Warning("No shops")
         self._capital = capital
@@ -14,8 +13,10 @@ class ShoppingCenter:
                 self.__debtors.remove(shop)
 
     def grant_loan(self, shop, interest, amount):
-        if shop not in self.__shops: raise Warning("Shop not in center")
-        if amount > self._capital: raise Warning("Not enough capital")
+        if shop not in self.__shops:
+            raise Warning("Shop not in center")
+        if amount > self._capital:
+            raise Warning("Not enough capital")
         self.__debtors.append(shop)
         shop.take_loan(interest, amount)
         self._capital -= amount
@@ -28,8 +29,7 @@ class ShoppingCenter:
         return shop
 
     def get_status(self):
-        return (
-        self._capital, tuple(self.__shops), tuple(self.__debtors))
+        return (self._capital, tuple(self.__shops), tuple(self.__debtors))
 
     def __len__(self):
         return len(self.__shops)

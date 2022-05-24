@@ -1,8 +1,8 @@
 from unittest import TestCase
 from matrix import Matrix
 
-class PublicTestSuite(TestCase):
 
+class PublicTestSuite(TestCase):
     def assertFailedInit(self, A):
         with self.assertRaises(AssertionError) as ctx:
             A = Matrix(A)
@@ -23,21 +23,21 @@ class PublicTestSuite(TestCase):
         self.assertFailedInit([["dd"]])
 
     def test5_wrong_input(self):
-        self.assertFailedInit([1,2,3])
+        self.assertFailedInit([1, 2, 3])
 
     def test6_wrong_input(self):
-        self.assertFailedInit([[1,2], [1,2], [1]])
+        self.assertFailedInit([[1, 2], [1, 2], [1]])
 
     def test_add(self):
-        A = Matrix([[3,2], [0,1]])
-        B = Matrix([[1,3], [2,0]])
+        A = Matrix([[3, 2], [0, 1]])
+        B = Matrix([[1, 3], [2, 0]])
         actual = A + B
-        expected = Matrix([[4,5], [2,1]])
+        expected = Matrix([[4, 5], [2, 1]])
         self.assertEqual(actual, expected)
 
     def test_mult(self):
-        A = Matrix([[3,2,1], [1,0,2]])
-        B = Matrix([[1,2], [0,1], [4,0]])
+        A = Matrix([[3, 2, 1], [1, 0, 2]])
+        B = Matrix([[1, 2], [0, 1], [4, 0]])
         actual = A * B
-        expected = Matrix([[7,8], [9,2]])
+        expected = Matrix([[7, 8], [9, 2]])
         self.assertEqual(actual, expected)

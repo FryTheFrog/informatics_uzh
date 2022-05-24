@@ -1,13 +1,14 @@
-pwd = 'abAB12++'
+pwd = "abAB12++"
+
 
 def pwd_check():
-    char = ['+', '-', '*', '/']
+    char = ["+", "-", "*", "/"]
     lowcount = 0
     upcount = 0
     digcount = 0
     charcount = 0
     validity = False
-    for i in pwd: 
+    for i in pwd:
         if i.islower():
             lowcount += 1
         if i.isupper():
@@ -21,8 +22,9 @@ def pwd_check():
             validity = True
 
     for i in pwd:
-            if not i.isalnum() and i not in char:
-                validity = False
+        if not i.isalnum() and i not in char:
+            validity = False
     return validity
+
 
 print(pwd_check())

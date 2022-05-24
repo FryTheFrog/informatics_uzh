@@ -22,4 +22,6 @@ class Order:
         return bill_amount
 
     def __repr__(self):
-        return "Order Items : {}, Order Bill Amount : {} ".format(self.__item_list, self.__bill_amount)
+        return "Order Items : {}, Order Bill Amount : {} ".format(
+            self.__item_list, self.__bill_amount
+        )

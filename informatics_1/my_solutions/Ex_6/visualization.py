@@ -8,7 +8,7 @@ def visualize(records):
     third_class_total = 0
 
     for orig_tuple in records[1]:
-        
+
         temp_list = []
         for part in orig_tuple:
             temp_list.append(part)
@@ -26,7 +26,7 @@ def visualize(records):
             third_class_total += 1
             if temp_list[0] == True:
                 third_class_alive += 1
-        
+
     total = first_class_total + second_class_total + third_class_total
 
     first_class_alive = round(first_class_alive / first_class_total * 100, 1)
@@ -46,14 +46,31 @@ Alive |{round(second_class_alive/5) * '*' + round(20 - second_class_alive/5) * '
 Total |{round(third_class_total/5) * '*' + round(20 - third_class_total/5) * ' '}| {third_class_total}%
 Alive |{round(third_class_alive/5) * '*' + round(20 - third_class_alive/5) * ' '}| {third_class_alive}%"""
 
-print(visualize((
-    ('Survived', 'Pclass', 'Name', 'Gender', 'Age', 'Fare'),
-    [
-        (True, 1, 'Cumings Mrs. John Bradley (Florence Briggs Thayer)',
-         'female', 38, 71.2833),
-         (False, 1, 'Cumings Mrs. John Bradley (Florence Briggs Thayer)',
-         'female', 38, 71.2833),
-        (True, 2, 'Flunky Mr Hazelnut', 'female', 18, 51.2),
-        (False, 3, 'Heikkinen Miss. Laina', 'female', 26, 7.925)
-    ]
-)))
+
+print(
+    visualize(
+        (
+            ("Survived", "Pclass", "Name", "Gender", "Age", "Fare"),
+            [
+                (
+                    True,
+                    1,
+                    "Cumings Mrs. John Bradley (Florence Briggs Thayer)",
+                    "female",
+                    38,
+                    71.2833,
+                ),
+                (
+                    False,
+                    1,
+                    "Cumings Mrs. John Bradley (Florence Briggs Thayer)",
+                    "female",
+                    38,
+                    71.2833,
+                ),
+                (True, 2, "Flunky Mr Hazelnut", "female", 18, 51.2),
+                (False, 3, "Heikkinen Miss. Laina", "female", 26, 7.925),
+            ],
+        )
+    )
+)

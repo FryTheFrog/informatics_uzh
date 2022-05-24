@@ -21,7 +21,7 @@ class CubeTest(TestCase):
         cylinder = Cylinder(3.5, 6.3, "blue", True)
         actual = cylinder.get_color()
         self.assertEqual(actual, "blue")
-    
+
     # test getter for area
     def test_cube_get_area(self):
         cube = Cube(10, "red", True)
@@ -40,7 +40,7 @@ class CubeTest(TestCase):
         actual = cylinder.get_area()
         expected = 215.4
         self.assertEqual(actual, expected)
-    
+
     # test getter for volume
     def test_cube_get_vol(self):
         cube = Cube(10, "red", True)

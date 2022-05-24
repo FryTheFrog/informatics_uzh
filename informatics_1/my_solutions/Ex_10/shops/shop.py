@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 
-class Shop(ABC):
 
+class Shop(ABC):
     def __init__(self, capital):
         self._capital = capital
         self.__loan = 0
@@ -32,7 +32,7 @@ class Shop(ABC):
     @abstractmethod
     def get_produced_units(self):
         pass
-    
+
     @abstractmethod
     def set_produced_units(self, units):
         pass
@@ -41,8 +41,8 @@ class Shop(ABC):
         amount_owed = rent
         if self.__loan != 0:
             amount_owed += round(
-                self.__loan * self.__interest + self.__initial_loan_amount / 10,
-                0)
+                self.__loan * self.__interest + self.__initial_loan_amount / 10, 0
+            )
             self.__loan -= round(self.__initial_loan_amount / 10)
         if self._capital < amount_owed:
             raise Warning("Company cant pay rent due to lack of capital")
@@ -61,5 +61,4 @@ class Shop(ABC):
         return self.__loan
 
     def get_status(self):
-        return (
-        self._capital, self.__loan, self.__interest, self.__initial_loan_amount)
+        return (self._capital, self.__loan, self.__interest, self.__initial_loan_amount)

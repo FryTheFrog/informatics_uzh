@@ -11,7 +11,8 @@ class Fridge:
             res = self.__inv[self.__idx]
             self.__idx += 1
             return res
-        else: raise StopIteration
+        else:
+            raise StopIteration
 
     def __len__(self):
         return len(self.__inv)
@@ -29,7 +30,8 @@ class Fridge:
         if item in self.__inv:
             self.__inv.remove(item)
             return item
-        else: raise Warning('No such item in fridge')
+        else:
+            raise Warning("No such item in fridge")
 
     def take_before(self, date):
         removed = []

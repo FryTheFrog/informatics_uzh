@@ -2,13 +2,13 @@ from unittest import TestCase
 from public.currency_converter import convert
 from public.bank_account import BankAccount
 
-class PrivateFunctionalTestSuite(TestCase):
 
+class PrivateFunctionalTestSuite(TestCase):
     def test_0_convert(self):
         actual = convert(1.0, "EUR", "CHF")
         expected = 1.10
         self.assertAlmostEqual(expected, actual, delta=0.0001)
-        
+
     def test_1_basic_banking(self):
         sut = BankAccount("CHF")
         sut.deposit(100.0, "CHF")

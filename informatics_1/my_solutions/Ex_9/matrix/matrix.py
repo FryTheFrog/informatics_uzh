@@ -1,24 +1,23 @@
 class Matrix:
-
     def __init__(self, matrix):
-        assert matrix != [], 'empty list'
-        assert isinstance(matrix, list), 'not a nested list'
+        assert matrix != [], "empty list"
+        assert isinstance(matrix, list), "not a nested list"
         for row in matrix:
-            assert isinstance(row, list), 'not a nested list'
-            assert row != [], 'empty sublist'
-            assert len(row) == len(matrix[0]), 'matrix not rectangular'
+            assert isinstance(row, list), "not a nested list"
+            assert row != [], "empty sublist"
+            assert len(row) == len(matrix[0]), "matrix not rectangular"
             for num in row:
-                assert isinstance(num, (int, float)), 'invalid type in sublist'
+                assert isinstance(num, (int, float)), "invalid type in sublist"
         self.__matrix = matrix
 
     def __add__(self, other):
-        
+
         # validate operation
-        assert isinstance(other, Matrix), 'not a matrix'
+        assert isinstance(other, Matrix), "not a matrix"
         rows = len(self.__matrix)
         cols = len(self.__matrix[0])
-        assert rows == len(other.__matrix), 'not the same number of rows'
-        assert cols == len(other.__matrix[0]), 'not the same number of columns'
+        assert rows == len(other.__matrix), "not the same number of rows"
+        assert cols == len(other.__matrix[0]), "not the same number of columns"
 
         # create matrix with correct size
         sum = []
@@ -37,13 +36,15 @@ class Matrix:
     def __mul__(self, other):
 
         # validate operation
-        assert isinstance(other, Matrix), 'not a matrix'
+        assert isinstance(other, Matrix), "not a matrix"
         rows1 = len(self.__matrix)
         cols1 = len(self.__matrix[0])
         rows2 = len(other.__matrix)
         cols2 = len(other.__matrix[0])
-        assert cols1 == rows2, 'number of colums (1st matrix) != number of rows (2nd matrix)'
-        
+        assert (
+            cols1 == rows2
+        ), "number of colums (1st matrix) != number of rows (2nd matrix)"
+
         # create matrix with correct size
         prod = []
         for i in range(rows1):
@@ -72,9 +73,9 @@ class Matrix:
         return repr(self.__matrix)
 
 
-if __name__ == '__main__':
-    M = Matrix([[5,5],[5,5]])
-    T = Matrix([[5,5],[5,5]])
+if __name__ == "__main__":
+    M = Matrix([[5, 5], [5, 5]])
+    T = Matrix([[5, 5], [5, 5]])
     print(M)
     print(M == T)
     d = {M: "1", T: "2"}

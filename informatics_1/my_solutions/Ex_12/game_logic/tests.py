@@ -5,7 +5,6 @@ from word_logic import WordLogic
 
 
 class PublicTestSuite(TestCase):
-
     def test_example(self):
         w = WordLogic(10, 7, 5)
         self.assertEqual(10, w.num_words)

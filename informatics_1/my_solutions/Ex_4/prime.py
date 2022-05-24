@@ -1,4 +1,4 @@
-x = int(input('Enter number: '))
+x = int(input("Enter number: "))
 
 flag = False
 
@@ -7,7 +7,10 @@ if x > 1:
         if (x % i) == 0:
             flag = True
             break
-else: flag = True
+else:
+    flag = True
 
-if flag: print('no')
-else: print('yes')
+if flag:
+    print("no")
+else:
+    print("yes")

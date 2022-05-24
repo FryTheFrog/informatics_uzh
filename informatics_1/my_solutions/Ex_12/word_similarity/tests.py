@@ -5,7 +5,6 @@ from script import WordLogic
 
 
 class PublicTestSuite(TestCase):
-
     def test_example(self):
         w = WordLogic(10, 7)
         words = w.word_selection()

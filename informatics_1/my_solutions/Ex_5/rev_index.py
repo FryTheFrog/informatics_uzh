@@ -10,8 +10,9 @@ dataset = [
     "fuck this world",
     "why am i",
     "it is shit",
-    "hello that shit"
- ] 
+    "hello that shit",
+]
+
 
 def reverse_index(dataset):
     index_dict = {}
@@ -20,7 +21,9 @@ def reverse_index(dataset):
         for word in words:
             if word in index_dict:
                 index_dict[word].append(idx)
-            else: index_dict[word] = [idx]
+            else:
+                index_dict[word] = [idx]
     return index_dict
+
 
 print(reverse_index(dataset))

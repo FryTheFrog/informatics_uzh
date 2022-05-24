@@ -2,7 +2,7 @@
 from unittest import TestCase
 import script as script
 
-class PublicTestSuite(TestCase):
 
+class PublicTestSuite(TestCase):
     def test_example(self):
         self.assertTrue(len(script.words_with_length(12)) == 208)

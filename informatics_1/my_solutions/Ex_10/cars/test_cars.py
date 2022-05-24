@@ -5,7 +5,6 @@ from hybrid_car import HybridCar
 
 
 class TestCars(TestCase):
-
     def test_comb_remaining_range(self):
         c = CombustionCar(40.0, 8.0)
         self.assertAlmostEqual(500.0, c.get_remaining_range(), delta=0.001)

@@ -3,8 +3,8 @@ from onsite_restaurant import OnsiteRestaurant
 from delivery_restaurant import DeliveryRestaurant
 from restaurant import Restaurant
 
-class RestaurantTest(TestCase):
 
+class RestaurantTest(TestCase):
     def test_restaurant_sales(self):
         r = Restaurant("Random Restaurant", "Mixed Cuisine")
         r.add_consumption_unit("Caesar Salad", 15)

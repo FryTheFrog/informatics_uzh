@@ -3,8 +3,8 @@ from shop import Shop
 from clothing_store import ClothingStore
 from bakery import Bakery
 
-class TestShops(TestCase):
 
+class TestShops(TestCase):
     def test_bakery_loan(self):
         bakery = Bakery(1000)
         bakery.take_loan(0.1, 1000)

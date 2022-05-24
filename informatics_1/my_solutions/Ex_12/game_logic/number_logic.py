@@ -6,10 +6,9 @@ from string import digits
 
 
 class NumberLogic(GameLogic):
-
     def check(self, guess):
         if len(set(guess)) != self.len_words:
-            raise Warning('duplicate digits')
+            raise Warning("duplicate digits")
         else:
             return super().check(guess)
 
@@ -22,8 +21,9 @@ class NumberLogic(GameLogic):
                     if temp not in num:
                         num += temp
                 yield num
+
         return list(gen())
-    
+
     def _generate_feedback(self, guess):
         matching = 0
         for i in guess:

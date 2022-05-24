@@ -3,8 +3,10 @@ from git import Repo
 from shutil import rmtree
 import os, subprocess, sys
 
+
 def eprint(*args, **kwargs):
     print(*args, file=sys.stderr, **kwargs)
+
 
 os.chdir("public")
 base_dir = os.getcwd()
@@ -14,24 +16,25 @@ print("script_location: {}".format(path_script))
 
 
 class GitTest(TestCase):
-
     @classmethod
     def tearDownClass(cls):
-        try: rmtree(".git")
-        except: pass
+        try:
+            rmtree(".git")
+        except:
+            pass
         for f in ["a.txt", "b.txt"]:
-            try: os.unlink(f)
-            except: pass
+            try:
+                os.unlink(f)
+            except:
+                pass
 
     def test_0_run_script(self):
         os.chmod(path_script, 0o755)
 
         print("executing '{}'...".format(path_script))
-        out = subprocess.Popen(path_script,
-                               cwd=base_dir,
-                               shell=True,
-                               stdout=2,
-                               stderr=2)
+        out = subprocess.Popen(
+            path_script, cwd=base_dir, shell=True, stdout=2, stderr=2
+        )
         stdout, _ = out.communicate()  # must be first thing to do
 
         if stdout:

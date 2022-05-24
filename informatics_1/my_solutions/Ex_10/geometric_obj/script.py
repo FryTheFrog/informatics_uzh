@@ -15,5 +15,4 @@ cube.set_color("yellow")
 print(f"Color of the cube object is: {cube.get_color()}")
 
 # See the area and volume of the cone_1
-print(
-    f"cone_1 area is: {cone_1.get_area()} cone_2 volume is: {cone_1.get_volume()}")
+print(f"cone_1 area is: {cone_1.get_area()} cone_2 volume is: {cone_1.get_volume()}")

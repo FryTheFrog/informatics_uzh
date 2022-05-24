@@ -2,7 +2,6 @@ import copy
 
 
 class Restaurant:
-
     def __init__(self, name, cuisine_type, is_open=False):
         self.__name = name
         self.__cuisine_type = cuisine_type
@@ -34,7 +33,8 @@ class Restaurant:
     def sell_unit(self, name):
         if self.__is_open:
             self.__sales += self.__menu[name]
-        else: raise Warning('restaurant is closed')
+        else:
+            raise Warning("restaurant is closed")
 
     def get_sales(self):
         return self.__sales

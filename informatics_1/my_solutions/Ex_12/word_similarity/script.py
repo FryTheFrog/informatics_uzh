@@ -6,7 +6,6 @@ from math import floor
 
 
 class WordLogic(object):
-
     def __init__(self, num_words, len_words):
         self.num_words = num_words
         self.len_words = len_words
@@ -19,7 +18,8 @@ class WordLogic(object):
     def is_similar(self, a, b, threshold):
         if SequenceMatcher(None, a, b).ratio() > threshold:
             return True
-        else: return False
+        else:
+            return False
 
     def word_selection(self):
         words = self.find_words_with_right_size()
